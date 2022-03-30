@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet"> 
+
+    <!--recaptcha-->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" >
+        <div class="content">    
+                  <!--FORMULÁRIO DE CADASTRO-->
+            <div id="cadastro">
+                <form method="post"> 
+                    {% csrf_token %}
+                    <h1>Olá, seja muito bem vindo!</h1> 
+                    <h2>Crie sua conta</h2>
+                    {% for l in form %}
+                        <div class="label-float">
+                            {{l}}
+                            <label>{{l.label}}</label>
+                        </div>
+                    {% endfor %}
+                    
+                    <div class="g-recaptcha" data-sitekey="6LdHvSgfAAAAAD97R6RQyM-R2NB3qFBObBwsLXYf"></div>
+
+                    <p> 
+                        <input type="submit" value="Cadastrar"/> 
+                    </p>
+
+                    <p class="link">  
+                        Já tem conta?
+                        <a href="{% url 'entrar' %}"> Ir para Login </a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

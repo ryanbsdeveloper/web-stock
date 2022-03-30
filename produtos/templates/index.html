@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/logo-iset-azul-501.png' %} " height="60px" />
+
+        <div id="sobre">
+            <p id="about">Sobre</p>
+
+            <a href='{% url 'entrar' %}' class="botaoLogin">Entrar</a> <a href='{% url 'cadastrar' %}' class="botaoLogin">Cadastrar</a>
+        </div>
+    </header>
+
+    <div id="texto_home">
+
+        <div>
+            <img src="{% static 'img/competencias-expertise-696x1131.png' %}" id='img_home' />
+        </div>
+
+        <h1 id="titulo">Gerencie seu Estoque<br/>Via Web<br/> <b id="texto-dentro">e domine o mundo!</b></h1>
+        
+        <p class="texto">Todos os recursos para gerenciar seu estoque.</p>
+        <p class="texto" id="ultimo-texto"><b>Organize sua empresa e evolua!</b></p>
+
+        <input type="button" value="Api" id="botaoApiVerde" /> <input type="button" value="Api" id="botaoApiAzul" />
+    </div>
+</body>
+</html>
