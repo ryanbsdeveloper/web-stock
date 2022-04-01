@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'Estoque.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [Path.joinpath(BASE_DIR, 'templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +69,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -132,3 +136,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #reCAPTCHA
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LdHvSgfAAAAAFVqaagJdgDhN7NSZcvFYgQMSHdh'
+GOOGLE_RECAPTCHA_SITE_KEY = '6LdHvSgfAAAAAD97R6RQyM-R2NB3qFBObBwsLXYf'
+
+MESSAGE_TAGS = {
+    constants.ERROR: 'alert-danger',
+    constants.WARNING: 'alert-warning',
+    constants.DEBUG: 'alert-info',
+    constants.SUCCESS: 'alert-success',
+    constants.INFO: 'alert-info',
+}
+
+# AUTHENTICATION_BACKENDS = [
+#     'social_core.backends.facebook.FacebookOAuth2',
+#     'django.contrib.auth.backends.ModelBackend',
+# ]
+
+# SOCIAL_AUTH_FACEBOOK_KEY = '667491794584304'
+# SOCIAL_AUTH_FACEBOOK_SECRET = '667491794584304'
+
+# LOGIN_URL = 'login'
+# LOGIN_REDIRECT_URL = 'index'
+# LOGOUT_URL = 'logout'
+# LOGOUT_REDIRECT_URL = 'login'

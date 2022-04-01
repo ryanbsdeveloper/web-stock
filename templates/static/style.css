@@ -1,5 +1,6 @@
 *{
     text-decoration: none;
+    list-style-type: none;
 }
 
 body {
@@ -10,31 +11,62 @@ body {
 h2{
     text-align: center;
 }
+li{
+  color: rgb(226, 20, 20);
+  font-weight:600;
+}
 #sobre {
     display: flex;
     float: right;
+    margin: 1.5em;
+
 }
 
 #about {
     margin-right: 50px;
+    margin-right: 50px;
+    color: #ac70ee;
+    font-family: monospace;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bolder;
 }
 
+
 .botaoLogin {
-    margin-left: 15px;
-    text-align: center;
-    width: 100px;
-    border-radius: 40px;
-    border: none;
-    color: white;
-    background: transparent;
-    border: 2px solid white;
+  margin-left: 15px;
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  border-radius: 40px;
+  border: 2.1px solid #ffffff;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.botaoCadastro {
+  margin-left: 15px;
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  border-radius: 40px;
+  border: 2.1px solid #ffffff;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 .botaoLogin:hover {
-    background-color: white;
-    color: black;
+    background-color: rgba(255, 255, 255, 0.082);
+    color: #ffffff;
     cursor: pointer;
-    box-shadow: 0px 0px 80px white;
+    box-shadow: 0px 0px 20px #ac70ee;
+}
+.botaoCadastro:hover {
+  background-color: rgba(255, 255, 255, 0.082);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px #ac70ee;
 }
 
 #botaoApiVerde {
@@ -76,32 +108,50 @@ h2{
     text-align: justify;
 }
 
+.icon-top{
+  float: right;
+  margin: 10px 20px;
+}
+@media only screen and (max-width: 815px) {
+  .icon-top{ 
+    display: none !important; 
+  }
+  .menu a, .menu{
+    background-color: #222;
+  } 
+}
+
 #texto_home {
     color: #f7f7f7;
     text-align: left;
-    margin: 5%;
+    margin: 0px 5%;
 }
-
+@media only screen and (max-width: 590px) {
+  #img_home{ 
+    display: none !important; 
+  } 
+}
 #img_home{
-    float: right;
-    /* margin-right: 20%; */
-    margin: 0px 10%;
-    width: 25%;
-    min-width: 150px;
+  float: right;
+  margin: 0px 10%;
+  width: 21.9%;
+  min-width: 150px;
 }
 
 #texto-dentro {
     font-weight: normal;
 }
 
-.texto {
-    font-size: 18px;
-    margin: 0;
+.texto-p {
+    color:white;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 #ultimo-texto {
     margin-top: 10px;
     margin-bottom: 30px;
+    color: #5335f9;
 }
 
 /* CADASTRO E LOGIN */
@@ -115,7 +165,6 @@ div p input{
 *, *:before, *:after { 
   margin:0;
   padding:0;
-  font-family: Arial,sans-serif;
 }
 
 body{
@@ -124,6 +173,7 @@ body{
 
 a{
   text-decoration: none;
+  color: white
 }
 
 /* esconde as ancoras da tela */
@@ -136,14 +186,23 @@ a.links{
   width: 500px;
   height: auto;
   margin: auto;
-  position: relative; 
+  position: relative;
+  text-align: center;
+
+}
+.fa-solid , .fas{
+  position: absolute;
+  margin: 20px;
+  font-size: 50px;
+  text-shadow: 6px 9px 7px black;
+  color: darkgrey;
+
 }
 
 /* formatando o cabeçalho dos formulários */
 h1{
   font-size: 30px;
   color: #ffffff;
-  padding: 10px 0;
   font-family: Arial,sans-serif;
   font-weight: bold;
   text-align: center;
@@ -191,7 +250,7 @@ input:not([type="checkbox"]){
   width: 95%;
   margin-top: 4px;
   padding: 10px;  
-  border: 1px solid #b2b2b2;
+  border: 1px solid #b2b2b200;
   
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -203,47 +262,32 @@ input:not([type="checkbox"]){
 /*estilo do botão submit */
 input[type="submit"]{
   width: 100%!important;
-  cursor: pointer;  
-  background: #3d9db3;
+  cursor: pointer;
+  background: #9563f9;
   padding: 8px 5px;
-  color: #fff;
+  color: #ffffff;
   height: auto;
-  font-size: 20px;  
-  border: 1px solid #fff; 
-  margin-bottom: 10px;  
-  text-shadow: 0 1px 1px #333;
-  
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 10px;
   transition: all 0.2s linear;
 }
 input[type="submit"]:hover{
-  background: #4ab3c6;
+  background: #7b4dd6;
 }
 
 /*marcando os links para mudar de um formulário para outro */
 .link{
   position: relative; 
   color: #7f7c7c;
-  left: 0px;
-  height: 20px;
-  /* width: 99%; */
-  float: right;
-  /* padding: 17px 30px 20px 30px; */
   font-size: 16px;
-  text-align: right;
-  /* border-top: 1px solid #dbe5e8; */
+  text-align: center;
   -webkit-border-radius: 0 0 5px 5px;
   border-radius: 0 0 5px 5px;
 }
 .link a {
     font-weight: bold;
-    /* background: #f7f8f1; */
-    padding: 6px;
     color: rgb(0 51 255);
-    margin-right: 25px;
-    /* border: 1px solid #cbd518; */
     -webkit-border-radius: 4px;
     border-radius: 4px;
     -webkit-transition: all 0.4s linear;
@@ -258,8 +302,8 @@ input[type="submit"]:hover{
 #login{
     position: relative;
     top: 0px;
-    padding: 18px 6% 60px 6%;
-    margin: 10%;
+    padding: 18px 6% 6% 6%;
+    margin: 15px 10%;
     background: rgb(18 18 18);
     border: 2px solid rgba(147, 184, 189,0.8);
     -webkit-box-shadow: 5px;
@@ -385,11 +429,158 @@ input[type="submit"]:hover{
     border-bottom: 2px solid red;
 }
 .label-float input:required:invalid + label:before{
-    content: '*';
+    content: ' ';
 }
 .label-float input:focus + label,
 .label-float input:not(:placeholder-shown) + label{
     font-size: 13px;
     margin-top: 0;
     color: #3951b2;
+}
+
+.texto {
+  position: relative;
+  display: inline-block;
+  color: red;
+  font-size: 1rem;
+  margin: 8px;
+  margin-left: 50px;
+}
+.texto::before,
+.texto::after {
+  content: "";
+  position: absolute;
+  top: 0.65em;
+  width: 1em;
+  height: 0.05em;
+  background-color: red;
+  left: -1.25em;
+}
+.texto::after {
+  left: initial;
+  right: -1.25em;
+}
+
+.criar-conta{
+  width: 50%;
+  margin: auto;
+  height: 1.7rem;
+  text-align: center;
+  background: #42b72a;
+  padding: 8px 8px;
+  border-radius: 7px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition: all 0.2s linear;
+}
+
+header img{
+  width: 11vw;
+  min-width: 100px;
+  height: auto;
+  margin-left: 3%;
+  margin-top: 1em;
+}
+
+/* MENU RESPONSIVO */
+
+.menu{
+	width:100%;
+	height:50px;
+	}
+	
+.menu>ul{
+	list-style:none;	
+	position:relative;
+	margin-left:50px;
+	}
+.menu ul li{
+		width:150px;
+		float:left;
+	}
+
+.menu a{
+	padding:15px;
+	display:block;
+	text-decoration: none;
+	text-align:center;
+  transition: all 0.2s linear;
+
+	}
+.menu ul ul{
+	list-style:none;
+	position:absolute;
+	visibility:hidden;
+	
+	}
+.menu ul li:hover ul{
+	visibility:visible;
+	}
+	
+.menu a:hover{
+	background-color:#f4f4f4;
+  color: #069;
+  transition: all 0.2s linear;
+	}
+
+.menu ul ul li{
+	float:none;
+	border-bottom: solid 1px #ccc;
+	}
+.menu ul ul li a{
+	background-color:#069;
+	}
+#bt_menu{
+	display: none;
+	}
+label[for='bt_menu']{
+	padding:5px;
+	color:#fff;
+	font-family:'Arial';
+	text-align:center;
+	font-size:30px;
+	cursor:pointer;
+	display:none;
+	width:50px;
+	height:50px;
+	}	
+label[for='bt_menu']:hover{
+  color: #aaa;
+  font-size: 50px;
+	}
+@media (max-width: 800px) {
+.menu{
+	margin-left:-110%;
+	transition:all .4s;
+	}
+label[for='bt_menu']{
+	display:block;
+  font-size: 50px;
+
+	}
+.menu>ul{
+	margin-left:0;
+	}
+.menu{
+	margin-top:5px;
+	}
+.menu ul li{
+	width:100%;
+	float:none;
+	}
+.menu ul ul{
+	position:static;
+	overflow:hidden;
+	max-height:0;
+	transition:all .4s;
+	}
+.menu ul li:hover ul{
+	height:auto;
+	max-height:200px;
+	transition:all .4s;
+	}
+#bt_menu:checked ~ .menu{
+	margin-left:0;
+	}
 }
