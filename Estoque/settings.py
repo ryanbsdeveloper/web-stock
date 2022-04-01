@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    'rest_framework',
+
     'django_filters',
+    'rest_framework',
+    'rest_framework.authtoken',
 
     'produtos',
     'API',
@@ -129,6 +130,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [Path.joinpath(BASE_DIR, 'templates/static')]
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'templates/collectstatic')
 
+MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -145,6 +149,34 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'alert-success',
     constants.INFO: 'alert-info',
 }
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
+
+    ],
+    'DEFAULT_THROTTLE_CLASSES': [
+    'rest_framework.throttling.AnonRateThrottle',
+    'rest_framework.throttling.UserRateThrottle'
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '5/minute',
+        'user': '10/minute'
+    }
+}
+
+
+
+
+
+
+
 
 # AUTHENTICATION_BACKENDS = [
 #     'social_core.backends.facebook.FacebookOAuth2',

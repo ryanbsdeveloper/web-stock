@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-    <script src="https://kit.fontawesome.com/ebab3d8cbc.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script>
 
     <title>Document</title>
     <input type="checkbox" id="bt_menu">
@@ -16,8 +16,13 @@
 <nav class="menu">
 	<ul>
     	<li><a href="#" style='color:#9563f9'>Sobre </a></li>
+        {% if request.user.is_authenticated %}
+        <li><i style='margin: 10px;font-size: 25px;color: #36ff36;' class="fa-solid fa-power-off"></i><a href="{% url 'dashboard' %}">Entrar</a></li>
+        <li><a href="{% url 'sair' %}">Sair</a></li>
+        {% else %}
         <li><a href="{% url 'entrar' %}">Entrar</a></li>
         <li><a href="{% url 'cadastrar' %}">Cadastrar</a></li>
+        {% endif %}
     </ul>
     <div class='icon-top'>
         <img src="{% static 'img/logo.png' %} " height="32px" />
@@ -25,10 +30,8 @@
 </nav>
 </head>
 <body>
-
     <header>
         <img src="{% static 'img/logo.png' %} " height="150px" />
-    
     </header>
 
     <div id="texto_home">
@@ -42,7 +45,7 @@
         <p class="texto-p">Todos os recursos para gerenciar seu estoque.</p>
         <p id="ultimo-texto"><b>Gerencie pelo nosso servidor ou consuma a API REST do seu estoque. </b></p>
 
-        <input type="button" value="" id="botaoApiAzul" />
+        <input type="button" value='DONATE' id="botaoApiAzul"><i class="fa-solid fa-hand-holding-dollar"></i></a>
     </div>
 </body>
 </html>

@@ -4,11 +4,17 @@ from django.views.generic.base import View
 from .models import UserModel
 from .forms import UserForm 
 from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
 from django.contrib import auth
 from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 import requests
+
+
+def logout_view(request):
+    auth.logout(request)
+    return redirect('home')
 
 class HomeView(TemplateView):
     template_name = 'index.html'
@@ -50,7 +56,9 @@ class SingUpView(View):
                 form.save()
                 user = User.objects.create_user(username=self.usuario, email=self.email, password=self.senha)
                 user.save()
-                return redirect('entrar')
+                user_valida = auth.authenticate(username=self.usuario, password=self.senha)
+                auth.login(request, user_valida )
+                return redirect('dashboard')
             else:
                 messages.error(request, 'reCAPTCHA inválido')
                 return render(request, self.template_name, self.contexto)
