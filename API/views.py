@@ -6,3 +6,6 @@ from .serializers import EstoqueSerializer
 class EstoqueViewSet(ModelViewSet):
     queryset = EstoqueModel.objects.all()
     serializer_class = EstoqueSerializer
+
+    def get_queryset(self):
+        print(':)')

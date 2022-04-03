@@ -2,13 +2,15 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views.generic.base import View
 from .models import UserModel
-from .forms import UserForm 
+from .forms import UserForm, EstoqueForm
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from django.contrib import auth
 from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
+
 import requests
 
 
@@ -36,6 +38,7 @@ class SingUpView(View):
         }
 
     def get(self, request):
+
         return render(request, self.template_name, self.contexto)
 
     def post(self, request, *args, **kwargs):
@@ -58,6 +61,21 @@ class SingUpView(View):
                 user.save()
                 user_valida = auth.authenticate(username=self.usuario, password=self.senha)
                 auth.login(request, user_valida )
+
+                # token
+                t = Token.objects.get_or_create(user=request.user)
+
+                # enviando email
+                send_mail(
+                    'Verificação rbs',
+                    f'''
+                    A equipe RBS agradece sua inscrição :) 
+                    Token de verificação: {t[0]}
+                    *obs:Esse Token é para acesso externo do servidor.''', 
+                    f'{settings.EMAIL_HOST_USER}',
+                    [f'{self.email}'], fail_silently=False)
+                
+
                 return redirect('dashboard')
             else:
                 messages.error(request, 'reCAPTCHA inválido')
@@ -105,10 +123,19 @@ class DashBoardView(LoginRequiredMixin, View):
     redirect_field_name = 'dashboard'
 
     def setup(self, request, *args, **kwargs):
+
+        self.contexto = {
+            'form': EstoqueForm(request.POST or None, initial={'nome_produto': f'{request.user}'})
+        }
+
         super().setup(request, *args, **kwargs)
 
-    def get(self, request):
-        return render(request, self.template_name)
+    def get(self, request, *args, **kwargs):
+        t = Token.objects.get_or_create(user=request.user)
+        print(':)') 
+        return render(request, self.template_name, self.contexto)
+    
+
 
     def post(self, request, *args, **kwargs):
         pass

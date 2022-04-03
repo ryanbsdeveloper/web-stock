@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--emojis-->
+    <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script> 
+
+    <!--recaptcha-->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+    <title>{% block titulo %}{% endblock titulo %}</title>
+</head>
+<body>
+
+    {% block conteudo %}{% endblock conteudo %}
+
+</body>
+</html>

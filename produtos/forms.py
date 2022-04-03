@@ -1,8 +1,8 @@
-from django.forms import ModelForm
-from .models import UserModel
+from django import forms
+from .models import UserModel, EstoqueModel
 
 
-class UserForm(ModelForm):
+class UserForm(forms.ModelForm):
     def clean(self):
         data = self.cleaned_data
         senha =  data.get('senha')
@@ -19,3 +19,12 @@ class UserForm(ModelForm):
     class Meta:
         model = UserModel
         fields = '__all__'
+        widgets = {
+                'senha': forms.PasswordInput(),
+            }
+    
+class EstoqueForm(forms.ModelForm):
+    class Meta:
+        model = EstoqueModel
+        fields = '__all__'
+

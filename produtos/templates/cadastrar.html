@@ -1,52 +1,39 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block titulo %}Cadastro{% endblock titulo %}
 
-    <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script> 
+{% block conteudo %}
 
-    <!--recaptcha-->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+<a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
+<div class="container" >
+    <div class="content">    
+        <img src="{% static 'img/logo.png' %}"style='width:110px;height:auto'>
+              <!--FORMULÁRIO DE CADASTRO-->
+        <div id="cadastro">
+            <form method="post"> 
+                {% csrf_token %}
+                <h2>Crie sua conta</h2>
+                {% for l in form %}
+                    <div class="label-float">
+                        {{l}}
+                        <label>{{l.label}}</label>
+                        {{l.errors}}
+                    </div>
+                {% endfor %}
+                
+                <div class="g-recaptcha" data-sitekey="{{recaptcha_site_key}}"></div>
+                {% include 'parciais/_messages.html' %}
+                <p> 
+                    <input type="submit" value="Cadastrar"/> 
+                </p>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-
-    <title>Document</title>
-</head>
-<body>
-    <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
-    <div class="container" >
-        <div class="content">    
-            <img src="{% static 'img/logo.png' %}"style='width:110px;height:auto'>
-                  <!--FORMULÁRIO DE CADASTRO-->
-            <div id="cadastro">
-                <form method="post"> 
-                    {% csrf_token %}
-                    <h2>Crie sua conta</h2>
-                    {% for l in form %}
-                        <div class="label-float">
-                            {{l}}
-                            <label>{{l.label}}</label>
-                            {{l.errors}}
-                        </div>
-                    {% endfor %}
-                    
-                    <div class="g-recaptcha" data-sitekey="{{recaptcha_site_key}}"></div>
-                    {% include 'parciais/_messages.html' %}
-                    <p> 
-                        <input type="submit" value="Cadastrar"/> 
-                    </p>
-
-                    <p class="link">  
-                        <a href="{% url 'entrar' %}">Já tem uma conta?</a>
-                    </p>
-                </form>
-            </div>
+                <p class="link">  
+                    <a href="{% url 'entrar' %}">Já tem uma conta?</a>
+                </p>
+            </form>
         </div>
     </div>
+</div>
 
-</body>
-</html>
+
+{% endblock conteudo %}

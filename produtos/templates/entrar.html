@@ -1,54 +1,44 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block titulo %}Entrar{% endblock titulo %}
 
-    <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script>
+{% block conteudo %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
+<div class="container" >
+    <div class="content">    
+          <!--FORMULÁRIO DE LOGIN-->
+        <img src="{% static 'img/logo.png' %}"style='width:110px;height:auto'>
+        <div id="login">
+            <form method="POST" action='{% url 'entrar' %}'>
+                {% csrf_token %}
+                <h2>Faça o login</h2>
+                <div class="label-float"> 
+                    {{form.email}}
+                    <label>{{form.email.label}}</label>
+                    {{l.errors}}
+                </div>
+                <div class="label-float">
+                    {{form.senha}}
+                    <label>{{form.senha.label}}</label>
+                    {{l.errors}}
+                </div>
 
-    <title>Document</title>
-</head>
-<body>
-    <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
-    <div class="container" >
-        <div class="content">    
-              <!--FORMULÁRIO DE LOGIN-->
-            <img src="{% static 'img/logo.png' %}"style='width:110px;height:auto'>
-            <div id="login">
-                <form method="POST" action='{% url 'entrar' %}'>
-                    {% csrf_token %}
-                    <h2>Faça o login</h2>
-                    <div class="label-float"> 
-                        {{form.email}}
-                        <label>{{form.email.label}}</label>
-                        {{l.errors}}
-                    </div>
-                    <div class="label-float">
-                        {{form.senha}}
-                        <label>{{form.senha.label}}</label>
-                        {{l.errors}}
-                    </div>
-
-                    {% include 'parciais/_messages.html' %}
-                    <p> 
-                        <input type="submit" value="Logar" /> 
-                    </p>
-                    <p class="link">
-                        <a href="{% url 'cadastrar' %}">Esqueceu o email?</a>
-                    </p>
-                    <p style='text-align: center;color:gray'>ou</p>
-                    <p class="criar-conta">
-                        <a href="{% url 'cadastrar' %}">Cadastre-se</a>
-                    </p>
-                </form>
-            </div>  
-        </div>
+                {% include 'parciais/_messages.html' %}
+                <p> 
+                    <input type="submit" value="Logar" /> 
+                </p>
+                <p class="link">
+                    <a href="{% url 'cadastrar' %}">Esqueceu o email?</a>
+                </p>
+                <p style='text-align: center;color:gray'>ou</p>
+                <p class="criar-conta">
+                    <a href="{% url 'cadastrar' %}">Cadastre-se</a>
+                </p>
+            </form>
+        </div>  
     </div>
+</div>
 
-</body>
-</html>
+
+{% endblock conteudo %}
