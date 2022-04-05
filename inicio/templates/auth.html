@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<div class="container" >
+    <div class="content">    
+          <!--FORMULÁRIO DE LOGIN-->
+        <img src="{% static 'img/logo.png' %}"style='width:110px;height:auto'>
+        <div id="login">
+            <div class="label-float">
+                <form method='POST'>
+                    {% csrf_token %}
+
+                    <h2 style='color: #ae71ed;'>Autenticação do Token</h2>
+                    <br>
+                    <h4 style='font-family: monospace;'>Enviado para: {{email}}</h4>
+                    <br>
+                    <br>
+                    <input type="text" name="token">
+                    <input type="submit" value="Verificar">
+                    {% include 'parciais/_messages.html' %}
+                    <br>
+                    <br>
+                    <p style='color: gray;'>*Verifique a caixa de spam*</p>
+                </form>
+            </div>
+            
+        </div>  
+    </div>
+</div>
+
+{% endblock conteudo %}

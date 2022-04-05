@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block titulo %}Entrar{% endblock titulo %}
 
@@ -10,7 +11,7 @@
           <!--FORMULÁRIO DE LOGIN-->
         <img src="{% static 'img/logo.png' %}"style='width:110px;height:auto'>
         <div id="login">
-            <form method="POST" action='{% url 'entrar' %}'>
+            <form method="POST" >
                 {% csrf_token %}
                 <h2>Faça o login</h2>
                 <div class="label-float"> 

@@ -1,20 +1,5 @@
-from trace import Trace
 from django.db import models
-from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-
-
-class UserModel(models.Model):
-    usuario = models.CharField(max_length=50, verbose_name='Usuário')
-    email = models.EmailField(unique=True, verbose_name='E-mail')
-    senha = models.CharField(max_length=50, verbose_name='Senha')
-
-    def __str__(self) -> str:
-        return self.usuario
-
-    class Meta:
-        verbose_name = "Usuário"
-        verbose_name_plural = "Usuários"
 
 
 class EstoqueModel(models.Model):
