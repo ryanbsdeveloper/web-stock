@@ -5,6 +5,7 @@ from .models import UserModel
 from .forms import UserForm
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import auth
 from django.contrib import messages
 from django.conf import settings
@@ -84,35 +85,6 @@ class SingUpView(View):
         return render(request, self.template_name, self.contexto)
 
 
-class AuthView(View):
-    template_name = 'auth.html'
-    def setup(self, request, *args, **kwargs) -> None:
-        super().setup(request, *args, **kwargs)
-        self.user = request.user
-
-        self.contexto = {
-            'email': self.user.email
-        }
-        auth.logout(request)
-
-    def get(self, request):
-        return render(request, self.template_name, self.contexto)
-
-
-    def post(self, request, *args, **kwargs):
-        input_token = request.POST.get('token')
-        token_do_usuario = Token.objects.get_or_create(user=self.user)[0]
-        user = UserModel.objects.get(usuario=self.user)
-        if str(input_token) == str(token_do_usuario):
-            valida_token = UserModel(id=user.id, usuario=user, email=user.email, senha=user.senha, token=True)
-            valida_token.save()
-            return redirect('entrar')
-
-        messages.error(request, 'Token não confere!')
-        auth.logout(request)
-        return render(request, self.template_name, self.contexto)
-
-
 class SingInView(View):
     template_name = 'entrar.html'
 
@@ -142,9 +114,6 @@ class SingInView(View):
                 auth.login(request, user_valida)
                 t = Token.objects.get_or_create(user=request.user)[0]
                 if not token_valida_do_usuario:
-                    contexto = {
-                        'email': request.user.email
-                    }
                     send_mail(
                         'Verificação rbs',
                         f'''
@@ -154,9 +123,48 @@ class SingInView(View):
                         f'{settings.EMAIL_HOST_USER}',
                         [f'{email}'], fail_silently=False)
 
+                    auth.login(request, user_valida)
                     return redirect('auth')
 
                 return redirect('dashboard')
             else:
                 messages.error(request, 'A senha digitada não é válida.')
                 return render(request, self.template_name, self.contexto)
+
+
+
+class AuthView(LoginRequiredMixin, View):
+    template_name = 'auth.html'
+    user = None
+
+    def setup(self, request, *args, **kwargs):
+        self.user = request.user
+        if not self.user.is_authenticated:
+            return super().setup(request, *args, **kwargs)
+
+        self.token_valido_ou_n = UserModel.objects.get(usuario=self.user.username).token
+        self.contexto = {
+            'email': self.user.email
+        }
+        super().setup(request, *args, **kwargs)
+
+
+    def get(self, request):
+        if self.token_valido_ou_n:
+            return redirect('dashboard')
+        return render(request, self.template_name, self.contexto)
+
+
+    def post(self, request, *args, **kwargs):
+        input_token = request.POST.get('token')
+        print(self.user.username)
+        token_do_usuario = Token.objects.get_or_create(user=self.user)[0]
+        user = UserModel.objects.get(usuario=self.user)
+        if str(input_token) == str(token_do_usuario):
+            valida_token = UserModel(id=user.id, usuario=user.usuario, email=user.email, senha=user.senha, token=True)
+            valida_token.save()
+            return redirect('dashboard')
+
+        messages.error(request, 'Token não confere!')
+        
+        return render(request, self.template_name, self.contexto)

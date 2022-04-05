@@ -5,13 +5,11 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from django.contrib import auth
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin, AccessMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class DashBoardView(View ,LoginRequiredMixin, AccessMixin):
+class DashBoardView(LoginRequiredMixin ,View):
     template_name = 'dashboard.html'
-    login_url = 'home'
-    redirect_field_name = 'dashboard'
 
     def setup(self, request, *args, **kwargs):
 

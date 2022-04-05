@@ -183,6 +183,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ryanbsdeveloper@gmail.com'
 EMAIL_HOST_PASSWORD = '842684265ry'
 
+
+#  LOGIN REQUIRED
+
+LOGIN_URL = 'entrar'
+
 # AUTHENTICATION_BACKENDS = [
 #     'social_core.backends.facebook.FacebookOAuth2',
 #     'django.contrib.auth.backends.ModelBackend',
