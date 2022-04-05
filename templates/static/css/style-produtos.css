@@ -1,0 +1,259 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+.topbar {
+    position: fixed;
+    background-color: #121212;
+    width: 100%;
+    padding: 0 20px;
+    height: 60px;
+    align-items: center;
+}
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo h2 {
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    font-family: monospace;
+    padding-top: 18px;
+}
+
+.search {
+    position: relative;
+    width: 60%;
+    justify-self: center;
+}
+
+.search input {
+    width: 100%;
+    min-width: 128px;
+    height: 40px;
+    padding: 0 40px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: #f5f5f5;
+}
+
+.search i {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.fa-bell {
+    justify-self: right;
+}
+
+.user {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    justify-self: right;
+}
+
+
+/* sidebar */
+
+.sidebar {
+    position: fixed;
+    width: 260px;
+    height: calc(100% - 0px);
+    background: #565656;
+    overflow-x: hidden;
+    box-shadow: 1px 20px 20px 4px rgb(0 0 0);
+    z-index: 2;
+}
+
+.sidebar ul {
+    margin-top: 20px;
+}
+
+.sidebar ul li {
+    width: 100%;
+    list-style: none;
+}
+
+.sidebar ul li:hover {
+    background: #fff;
+}
+
+.sidebar ul li:hover a {
+    color:#5335f9;
+}
+
+.sidebar ul li a {
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.sidebar ul li a i {
+    min-width: 60px;
+    font-size: 24px;
+    text-align: center;
+}
+
+
+/* main */
+
+html{
+    background: #121212;
+}
+
+.main {
+    position: absolute;
+    top: 60px;
+    width: calc(100% - 260px);
+    min-height: calc(100vh - 60px);
+    left: 260px;
+    background: #121212;
+}
+
+.cards {
+    width: 100%;
+    padding: 35px 20px;
+    display: flex;
+    justify-content: center;
+    /* display: grid; */
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-gap: 20px;
+}
+
+
+.cards .card {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #565656;
+    border-radius: 10px;
+    box-shadow: 2px 4px 17px 4px rgb(0 0 0);
+    width: 100%;
+}
+
+.number {
+    font-size: 35px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.card-name {
+    font-weight: 800;
+}
+
+.icon-box i {
+    font-size: 45px;
+    color: #fff;
+}
+
+
+/* charts */
+
+.charts {
+    display: grid;
+    grid-gap: 20px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+}
+
+.chart {
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    margin: auto;
+    max-width: 376px;
+}
+
+.chart h2 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #666;
+    text-align: center
+}
+
+@media (max-width:1115px) {
+    .sidebar {
+        width: 60px;
+    }
+    .main {
+        width: 100%;
+        left: 60px;
+    }
+}
+
+@media (max-width:880px) {
+    /* .topbar {
+        grid-template-columns: 1.6fr 6fr 0.4fr 1fr;
+    } */
+    .fa-bell {
+        justify-self: left;
+    }
+    .cards {
+        width: 100%;
+        padding: 35px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+    .charts {
+        grid-template-columns: 1fr;
+    }
+    .doughnut-chart {
+        padding: 50px;
+    }
+    #doughnut {
+        padding: 50px;
+    }
+}
+
+@media (max-width:500px) {
+    .topbar {
+        grid-template-columns: 1fr 5fr 0.4fr 1fr;
+    }
+    .logo h2 {
+        font-size: 20px;
+    }
+    .search {
+        width: 80%;
+    }
+    .search input {
+        padding: 0 20px;
+    }
+    .fa-bell {
+        margin-right: 5px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .doughnut-chart {
+        padding: 10px;
+    }
+    #doughnut {
+        padding: 0px;
+    }
+    .user {
+        width: 40px;
+        height: 40px;
+    }
+}

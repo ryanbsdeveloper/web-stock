@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!--Emojis-->
+    <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style-produtos.css' %}">
+    <title>{% block titulo %}{% endblock titulo %}</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2><strong style='color: #5335f9;'> Olá,</strong> {% block usuario %}{% endblock usuario %}</h2>
+            </div>
+            <div class="logo">
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-address-card"></i>
+                        <div>Perfil</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-cart-flatbed"></i>
+                        <div>Estoque</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'sair' %}">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <div>Sair</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        {% block conteudo %}{% endblock conteudo %}
+    <!--grafico js--> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <script src="{% static 'js/chart2.js' %}"></script>
+</body>
+
+</html>

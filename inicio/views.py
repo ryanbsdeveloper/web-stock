@@ -10,13 +10,12 @@ from django.contrib import auth
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
-
 import requests
-
 
 def logout_view(request):
     auth.logout(request)
     return redirect('home')
+
 
 class HomeView(TemplateView):
     template_name = 'index.html'
@@ -130,7 +129,6 @@ class SingInView(View):
             else:
                 messages.error(request, 'A senha digitada não é válida.')
                 return render(request, self.template_name, self.contexto)
-
 
 
 class AuthView(LoginRequiredMixin, View):

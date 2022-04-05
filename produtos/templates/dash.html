@@ -1,0 +1,36 @@
+{% extends 'base_produtos.html' %}
+
+{% block titulo %}Dashboard{% endblock titulo %}
+{% block usuario %}{{request.user}}{% endblock usuario %}
+
+{% block conteudo %}
+<div class="main">
+    <div class="cards">
+        <div class="card">
+            <div class="card-content">
+                <div class="number">0</div>
+                <div class="card-name">Total de marcas</div>
+            </div>
+            <div class="icon-box">
+                <i class="fa-solid fa-tags"></i>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="number">0</div>
+                <div class="card-name">Total produtos</div>
+            </div>
+            <div class="icon-box">
+                <i class="fa-solid fa-boxes-stacked"></i>
+            </div>
+        </div>
+    </div>
+    <div class="charts">
+        <div class="chart doughnut-chart">
+            <h2>Produtos</h2>
+            <canvas id="doughnut"></canvas>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock conteudo %}
