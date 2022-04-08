@@ -1,10 +1,9 @@
 {% extends 'base_produtos.html' %}
 
 {% block titulo %}Dashboard{% endblock titulo %}
-{% block usuario %}{{request.user}}{% endblock usuario %}
+{% block usuario %}<strong style='color: #5335f9;'> Olá,</strong> {{request.user}}{% endblock usuario %}
 
 {% block conteudo %}
-<div class="main">
     <div class="cards">
         <div class="card">
             <div class="card-content">
@@ -31,6 +30,5 @@
             <canvas id="doughnut"></canvas>
         </div>
     </div>
-</div>
 </div>
 {% endblock conteudo %}

@@ -18,14 +18,21 @@
     <div class="container">
         <div class="topbar">
             <div class="logo">
-                <h2><strong style='color: #5335f9;'> Olá,</strong> {% block usuario %}{% endblock usuario %}</h2>
+                <img src="{% static 'img/logo.png' %}"alt="">
             </div>
             <div class="logo">
+                <h2>{% block usuario %}{% endblock usuario %}</h2>
             </div>
         </div>
         
         <div class="sidebar">
             <ul>
+                <li>
+                    <a href="{% url 'dashboard' %}">
+                        <i class="fa-solid fa-house-user"></i>
+                        <div>Inicio</div>
+                    </a>
+                </li>
                 <li>
                     <a href="#">
                         <i class="fa-solid fa-address-card"></i>
@@ -33,7 +40,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{% url 'produtos' %}">
                         <i class="fa-solid fa-cart-flatbed"></i>
                         <div>Estoque</div>
                     </a>
@@ -46,7 +53,9 @@
                 </li>
             </ul>
         </div>
-        {% block conteudo %}{% endblock conteudo %}
+        <div class="main">
+            {% block conteudo %}{% endblock conteudo %}
+        </div> 
     <!--grafico js--> 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <script src="{% static 'js/chart2.js' %}"></script>

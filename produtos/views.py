@@ -1,5 +1,8 @@
+from re import template
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
+
+from produtos.models import EstoqueModel
 from .forms import EstoqueForm
 from inicio.models import UserModel
 from django.contrib.auth.models import User
@@ -10,8 +13,12 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+# DELETAR E EDITAR
 
-class DashBoardView(LoginRequiredMixin ,View):
+def DelProduto(request, id):
+    pass
+
+class DashBoardView(LoginRequiredMixin, View):
     template_name = 'dash.html'
 
     def setup(self, request, *args, **kwargs):
@@ -36,5 +43,29 @@ class DashBoardView(LoginRequiredMixin ,View):
         return render(request, self.template_name)
     
 
-    def post(self, request, *args, **kwargs):
-        pass
+class ProdutosView(LoginRequiredMixin, View):
+    template_name = 'estoque.html'
+
+    def setup(self, request, *args, **kwargs):
+        super().setup(request, *args, **kwargs)
+        self.contexto = {
+            'produtos': EstoqueModel.objects.order_by('-created_at').filter(usuario=request.user),
+            'form': EstoqueForm(request.POST, request.FILES)
+        }
+
+
+    def get(self, request):
+        return render(request, self.template_name, self.contexto)
+        
+    def post(self, request):
+        form = EstoqueForm(request.POST, request.FILES)
+        
+        if form.is_valid():
+            produto = form.save(commit=False)
+            produto.usuario = request.user
+            produto.save()
+            return redirect('produtos')
+        else:
+            print(':)',form.errors)
+            messages.error(request, 'Preencha o formulário, e tente novamente!')
+            return redirect('produtos')
