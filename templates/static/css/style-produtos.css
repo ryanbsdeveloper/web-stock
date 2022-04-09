@@ -294,7 +294,7 @@ html{
   }
   
   .cartas-produtos section {
-    display: flex;
+    display: contents;
     /* align-items: center; */
     position: initial;
     height: 100%;
@@ -364,20 +364,20 @@ html{
   
   .cartas-produtos main button {
     cursor: pointer;
-    padding: 1rem 0;
-    width: 100%;
-    background: #000000;
+    padding: .3rem 0px;
+    width: 60%;
+    background: #ffffff;
     border-radius: 0.8rem;
     border: none;
-    color: #FFF;
+    color: rgb(0, 0, 0);
     font-weight: 600;
     font-size: 95%;
     margin-bottom: 1rem;
     transition: background 0.3s;
   }
   
-  .cartas-produtos main button:hover {
-    background: #38346c;
+  .cartas-produtos main button:hover{
+    background: #8f8f8f;
   }
   
   #cancel-order {
@@ -502,12 +502,12 @@ html{
     text-align: center;
     color: #ffffff;
     margin: 0;
-    background: black;
+    background: #4a4a4a;
 }
 
 .modal article{
     height: 67vh;
-    background: #e5e5e5;
+    background: #4a4a4a;
 }
 
 .close-modal{
@@ -520,10 +520,6 @@ html{
     font-weight: bold;
     font-size: 1.5em;
     text-decoration: none;
-}
-
-.modal a:hover{
-    color: #2b53c0;
 }
 
 .modal:target{
@@ -554,42 +550,12 @@ html{
     
 }
 
-form{
-    display: grid;
-    padding: 20px 50px;
-}
-
-form label {
-    font-family: monospace;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 black;
-}
-
-form input {
-    border: 0;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 3px 2px 8px #000000;
-    font-weight: 600;
-    background: #767676b0;
-}
-
-form button {
-    border: 0;
-    margin-top: 20px;
-    height: 50px;
-    background: #30b718;
-    font-size: 25px;
-    border-radius: 20px;
-}
 
 a i.fa-solid.fa-trash-can{
     font-size: 25px;
     margin-top: 10px;
     margin-left: 114px;
-    position: fixed;
+    position: absolute;
     color: black;
 }
 
@@ -597,3 +563,100 @@ i.fa-solid.fa-trash-can:hover{
     color: #d81212;
     cursor: pointer;
 }
+
+.caixadepesquisa button {
+    border: 0;
+    margin-top: 0px;
+    background: #30b71800;
+    font-size: 25px;
+}
+
+i.fa-solid.fa-pen-to-square {
+    font-size: x-large;
+    color: #000000;
+}
+i.fa-solid.fa-cart-plus {
+    font-size: -125px;
+    font-size: 40px;
+    color: #000000;
+}
+
+.tudo {
+    font-family: sans-serif;
+    background-color: #00022d;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .btn {
+    display: inline-block;
+    background-color: transparent;
+    color: #fff;
+    width: 180px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 50px;
+    transition: all ease 0.5s;
+  }
+  
+  a.btn:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .submit-form{
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 20px;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+  }
+  
+  .textbox {
+    width: 90%;
+    text-align: center;
+    display: flex;
+  
+  }
+  
+  .textbox input {
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+    border-bottom: 1.5px solid #787878;
+    background-color: transparent;
+  }
+  
+  .textbox input:focus {
+    border-bottom: 1.5px solid #0047ff;
+    transition: all ease 0.8s;
+    color: #fff;
+  }
+  
+  .submit-form button {
+    display: flex;
+    position: relative;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background: #0047ff;
+    justify-content: center;
+  }
+  
+  
+  .textbox label{
+    color: rgb(155 155 155);
+    font-weight: 700;
+    letter-spacing: 1px;
+    width: 100px;
+    padding-right: 10px;
+  }
