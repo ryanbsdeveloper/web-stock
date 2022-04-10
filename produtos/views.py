@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
+from django.db.models import Sum
 from produtos.models import EstoqueModel
 from .forms import EstoqueForm
 from inicio.models import UserModel
@@ -18,8 +19,30 @@ def DelProduto(request, id):
     return redirect('produtos')
 
 
-class DetalhesView(LoginRequiredMixin,  View):
-    pass
+class EditarView(LoginRequiredMixin, View):
+    template_name = 'detalhe.html'
+
+    def setup(self, request, *args, **kwargs):
+        id = kwargs['id']
+        self.obj = get_object_or_404(EstoqueModel, pk=id)
+        self.contexto = {
+            'produto': self.obj,
+            'form': EstoqueForm(instance=self.obj)
+        }
+        super().setup(request, *args, **kwargs)
+
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, self.contexto)
+
+    def post(self, request, *args, **kwargs):
+        form = EstoqueForm(request.POST, instance=self.obj)
+        
+        if form.is_valid():
+            form.save()
+            return redirect('produtos')
+        print(form.errors)
+        return render(request, self.template_name, self.contexto)
 
 
 # DASHBOARD E PRODUTO
@@ -30,6 +53,17 @@ class DashBoardView(LoginRequiredMixin, View):
     def setup(self, request, *args, **kwargs):
         self.token_valido_ou_n = UserModel.objects.get(
             usuario=request.user).token
+            
+        preco = EstoqueModel.objects.filter(usuario=request.user).aggregate(Sum('preco'))
+        preco = preco['preco__sum']
+        if not preco:
+            preco = 0
+       
+
+        self.contexto = {
+            'produtos': EstoqueModel.objects.filter(usuario=request.user),
+            'marcas': round(preco, 2)
+        }
         super().setup(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
@@ -47,18 +81,19 @@ class DashBoardView(LoginRequiredMixin, View):
 
             return redirect('auth')
 
-        return render(request, self.template_name)
+        return render(request, self.template_name, self.contexto)
 
 
 class ProdutosView(LoginRequiredMixin, View):
     template_name = 'estoque.html'
 
     def setup(self, request, *args, **kwargs):
-        super().setup(request, *args, **kwargs)
         self.contexto = {
             'produtos': EstoqueModel.objects.order_by('-created_at').filter(usuario=request.user),
             'form': EstoqueForm(request.POST, request.FILES)
         }
+        super().setup(request, *args, **kwargs)
+
 
     def get(self, request):
         busca = request.GET.get('busca')

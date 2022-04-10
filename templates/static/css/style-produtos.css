@@ -100,7 +100,7 @@
 }
 
 .sidebar ul li:hover a {
-    color:#5335f9;
+    color: #5335f9;
 }
 
 .sidebar ul li a {
@@ -122,7 +122,7 @@
 
 /* main */
 
-html{
+html {
     background: #121212;
 }
 
@@ -202,6 +202,7 @@ html{
     .sidebar {
         width: 60px;
     }
+
     .main {
         width: 100%;
         left: 60px;
@@ -209,12 +210,14 @@ html{
 }
 
 @media (max-width:880px) {
+
     /* .topbar {
         grid-template-columns: 1.6fr 6fr 0.4fr 1fr;
     } */
     .fa-bell {
         justify-self: left;
     }
+
     .cards {
         width: 100%;
         padding: 35px 20px;
@@ -222,12 +225,15 @@ html{
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 20px;
     }
+
     .charts {
         grid-template-columns: 1fr;
     }
+
     .doughnut-chart {
         padding: 50px;
     }
+
     #doughnut {
         padding: 50px;
     }
@@ -237,27 +243,35 @@ html{
     .topbar {
         grid-template-columns: 1fr 5fr 0.4fr 1fr;
     }
+
     .logo h2 {
         font-size: 20px;
     }
+
     .search {
         width: 80%;
     }
+
     .search input {
         padding: 0 20px;
     }
+
     .fa-bell {
         margin-right: 5px;
     }
+
     .cards {
         grid-template-columns: 1fr;
     }
+
     .doughnut-chart {
         padding: 10px;
     }
+
     #doughnut {
         padding: 0px;
     }
+
     .user {
         width: 40px;
         height: 40px;
@@ -279,9 +293,9 @@ html{
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-  }
-  
-  .cartas-produtos main {
+}
+
+.cartas-produtos main {
     max-width: 416px;
     border-radius: 1rem;
     display: flex;
@@ -290,10 +304,10 @@ html{
     padding: 0 2rem;
     width: 300px;
     margin: 2%;
-  
-  }
-  
-  .cartas-produtos section {
+
+}
+
+.cartas-produtos section {
     display: contents;
     /* align-items: center; */
     position: initial;
@@ -301,109 +315,111 @@ html{
     width: 100%;
     align-content: flex-end;
     flex-wrap: wrap;
-  }
-  
-  .cartas-produtos main h1 {
+}
+
+.cartas-produtos main h1 {
     font-size: 1.5rem;
     color: #ffffff;
-  }
-  
-  .cartas-produtos main span {
+}
+
+.cartas-produtos main span {
     text-align: center;
     color: #545454;
-  }
-  
-  .cartas-produtos main strong {
+}
+
+.cartas-produtos main strong {
     color: #0047ff;
-  }
-  
-  .cartas-produtos main img {
+}
+
+.cartas-produtos main img {
     border-radius: 1em;
     max-width: 300px;
     min-height: 240px;
     width: auto;
     height: auto;
-  }
-  
-  main .informations {
+}
+
+main .informations {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 0rem;
     width: 100%;
     border-radius: 0.8rem;
-  }
-  
-  main .informations .music-price {
+}
+
+main .informations .music-price {
     display: flex;
     align-items: center;
-  }
-  
-  main .informations .price {
+}
+
+main .informations .price {
     display: flex;
     flex-direction: column;
     margin-left: 1rem;
-  }
-  
-  main .informations a {
+}
+
+main .informations a {
     color: #382AE1;
     font-weight: 600;
     font-size: 90%;
     transition: all 0.3s;
-  }
-  
-  main .informations a:hover {
+}
+
+main .informations a:hover {
     color: #766CF1;
     text-decoration: none;
-  }
-  
-  main .informations img {
+}
+
+main .informations img {
     width: 3rem;
     height: 3rem;
-  }
-  
-  .cartas-produtos main button {
+}
+
+.cartas-produtos main button {
     cursor: pointer;
     padding: .3rem 0px;
-    width: 60%;
-    background: #ffffff;
+    width: 150px;
+    background: black;
     border-radius: 0.8rem;
+    padding-bottom: 9px;
     border: none;
-    color: rgb(0, 0, 0);
+    color: white;
     font-weight: 600;
     font-size: 95%;
     margin-bottom: 1rem;
     transition: background 0.3s;
-  }
-  
-  .cartas-produtos main button:hover{
+}
+
+.cartas-produtos main button:hover {
     background: #8f8f8f;
-  }
-  
-  #cancel-order {
+}
+
+#cancel-order {
     text-decoration: none;
     color: #717FA6;
     font-weight: 600;
     font-size: 0.95rem;
     margin-bottom: 2rem;
     transition: color 0.3s;
-  }
-  
-  #cancel-order:hover {
+}
+
+#cancel-order:hover {
     color: #1F2E55;
-  }
-  
+}
+
 /* INPUT BUSCA */
 
 
-.caixadepesquisa h1{
+.caixadepesquisa h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 50px;
     position: absolute;
     top: 40%;
     left: 43.5%;
 }
-.caixadepesquisa{
+
+.caixadepesquisa {
     position: absolute;
     top: 50%;
     left: 55%;
@@ -419,7 +435,8 @@ html{
     flex-direction: row;
     align-items: center;
 }
-.botaodepesquisa{
+
+.botaodepesquisa {
     color: white;
     float: right;
     width: 3vw;
@@ -433,7 +450,8 @@ html{
     align-items: center;
     text-decoration: none;
 }
-.textodepesquisa{
+
+.textodepesquisa {
     border: none;
     background: none;
     outline: none;
@@ -446,7 +464,7 @@ html{
     width: 100%;
 }
 
-.add-produto{
+.add-produto {
     float: right;
     position: absolute;
     top: 50%;
@@ -454,7 +472,7 @@ html{
     transform: translate(-50%, -50%);
 }
 
-.add-produto button{
+.add-produto button {
     width: 9vw;
     height: 3vw;
     min-height: 30px;
@@ -471,7 +489,7 @@ html{
 /* Janela Modal */
 
 
-.modal{
+.modal {
     position: fixed;
     top: -100vh;
     left: 0;
@@ -483,7 +501,7 @@ html{
     transition: opacity 0.35s ease;
 }
 
-.modal .content-modal{
+.modal .content-modal {
     width: 100%;
     max-width: 500px;
     position: fixed;
@@ -492,12 +510,12 @@ html{
     transition: top 0.35s ease;
     margin-left: -250px;
     background: white;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     z-index: 9999999;
 }
 
-.modal h2{
+.modal h2 {
     padding: 0.5em;
     text-align: center;
     color: #ffffff;
@@ -505,12 +523,12 @@ html{
     background: #4a4a4a;
 }
 
-.modal article{
+.modal article {
     height: 67vh;
     background: #4a4a4a;
 }
 
-.close-modal{
+.close-modal {
     color: #ffffff;
     position: absolute;
     top: 0.2em;
@@ -522,12 +540,12 @@ html{
     text-decoration: none;
 }
 
-.modal:target{
+.modal:target {
     opacity: 1;
     top: 0;
 }
 
-.modal .btn-close-modal{
+.modal .btn-close-modal {
     position: absolute;
     left: 0;
     width: 100%;
@@ -535,23 +553,23 @@ html{
     z-index: 99999991;
 }
 
-.modal:target .content-modal{
+.modal:target .content-modal {
     top: 50px;
     transition: top 0.35s ease;
 }
 
-@media (max-width: 500px){
-    .modal .content-modal{
+@media (max-width: 500px) {
+    .modal .content-modal {
         width: 90%;
         max-width: none;
         left: 5%;
         margin-left: 0;
     }
-    
+
 }
 
 
-a i.fa-solid.fa-trash-can{
+a i.fa-solid.fa-trash-can {
     font-size: 25px;
     margin-top: 10px;
     margin-left: 114px;
@@ -559,7 +577,7 @@ a i.fa-solid.fa-trash-can{
     color: black;
 }
 
-i.fa-solid.fa-trash-can:hover{
+i.fa-solid.fa-trash-can:hover {
     color: #d81212;
     cursor: pointer;
 }
@@ -573,8 +591,9 @@ i.fa-solid.fa-trash-can:hover{
 
 i.fa-solid.fa-pen-to-square {
     font-size: x-large;
-    color: #000000;
+    color: #ffffff;
 }
+
 i.fa-solid.fa-cart-plus {
     font-size: -125px;
     font-size: 40px;
@@ -586,26 +605,9 @@ i.fa-solid.fa-cart-plus {
     background-color: #00022d;
     color: #fff;
     overflow: hidden;
-  }
-  
-  .btn {
-    display: inline-block;
-    background-color: transparent;
-    color: #fff;
-    width: 180px;
-    line-height: 60px;
-    text-align: center;
-    font-size: 18px;
-    border-radius: 50px;
-    transition: all ease 0.5s;
-  }
-  
-  a.btn:hover {
-    background-color: #fff;
-    color: #000;
-  }
-  
-  .submit-form{
+}
+
+.submit-form {
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
@@ -615,16 +617,16 @@ i.fa-solid.fa-cart-plus {
     height: 100%;
     width: 100%;
     border-radius: 50px;
-  }
-  
-  .textbox {
+}
+
+.textbox {
     width: 90%;
     text-align: center;
     display: flex;
-  
-  }
-  
-  .textbox input {
+
+}
+
+.textbox input {
     border: none;
     outline: none;
     color: #fff;
@@ -634,29 +636,119 @@ i.fa-solid.fa-cart-plus {
     width: 100%;
     border-bottom: 1.5px solid #787878;
     background-color: transparent;
-  }
-  
-  .textbox input:focus {
+}
+
+.textbox input:focus {
     border-bottom: 1.5px solid #0047ff;
     transition: all ease 0.8s;
     color: #fff;
-  }
-  
-  .submit-form button {
+}
+
+.submit-form button {
     display: flex;
     position: relative;
     border: none;
     font-weight: 600;
     cursor: pointer;
-    background: #0047ff;
     justify-content: center;
-  }
-  
-  
-  .textbox label{
+}
+
+
+.textbox label {
     color: rgb(155 155 155);
     font-weight: 700;
     letter-spacing: 1px;
     width: 100px;
     padding-right: 10px;
-  }
+}
+
+.edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.edit-name {
+    text-align: center;
+    margin-left: 130px;
+    letter-spacing: 1px;
+    text-shadow: 5px 4px 4px #000000;
+    color: #fff;
+    font-size: calc(1vw + 100%);
+}
+
+.edit-img {
+    margin: 8% 50px;
+    width: 400px;
+    border-radius: 10%;
+}
+
+.edit-form {
+    display: grid;
+    width: 40%;
+    margin: auto;
+    min-width: 300px;
+}
+
+.edit-form label {
+    margin-top: 30px;
+    color: #ffffff;
+    font-weight: bold
+}
+
+.edit-form input {
+    border: 0;
+    border-bottom: 2px solid #152deb;
+    background-color: #2a2a2a;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 12px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+/* BTN DA ABA EDITAR */
+
+.btn {
+    display: inline-block;
+    background-color: transparent;
+    color: #fff;
+    width: 180px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 50px;
+    transition: all ease 0.5s;
+}
+
+.btn-iterativo{
+    display: flex;
+}
+
+.btn-iterativo button {
+    align-items: center;
+    position: relative;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 1;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.btn-iterativo button:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #232cdd;
+    z-index: -1;
+    transition: all ease 0.5s;
+}
+
+.btn-iterativo button:hover:before {
+    width: 100%;
+}

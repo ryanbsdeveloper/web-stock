@@ -57,8 +57,9 @@
                 </div>
 
                 {% include 'parciais/_messages.html' %}
-
-                <button type="submit" class="btn">Adicionar Produto</button>
+                <div class="btn-iterativo">
+                    <button type="submit" class="btn">Adicionar Produto</button>
+                </div>
             </form>
         </article>
     </div>
@@ -86,7 +87,7 @@
                 </div>
             </div>
 
-            <a href="{% url 'detalhe' produto.id %}" id="show-modal"><button type="submit"><i class="fa-solid fa-pen-to-square"></i></button></a>
+            <a href="{% url 'editar' produto.id %}" id="show-modal"><button type="submit"><i class="fa-solid fa-pen-to-square"></i> EDITAR</button></a>
         </section>
         </main>
     {% endfor %}
