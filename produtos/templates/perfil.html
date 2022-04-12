@@ -1,0 +1,44 @@
+{% extends 'base_produtos.html' %}
+{% load static %}
+
+{% block usuario %}<strong style='color: #5335f9;'> Olá,</strong> {{request.user}}{% endblock usuario %}
+{% block conteudo %}
+    <div class='dados-pessoais'>
+        <label>Seu e-mail de registro é: </label>
+        <div class="campo-input">
+            <label>E-mail</label>
+            <input type="text" id='email' value={{request.user.email}} class='leitura'>
+        </div>
+        <label>Token para acesso a API</label>
+        <div class="campo-input">
+            <i class="fa-solid fa-key"></i>
+            <input type="text" id='token' value={{token}} class='leitura'>
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
+        <label>Telefone (Opcional)</label>
+        {% if telefone %}
+            <div class='campo-input'>
+                <input type="number" name="telefone" id="telefone" value={{telefone}} class='leitura'>
+            </div>
+        {% else %}
+        <form method="post">{% csrf_token %}
+            <div class="campo-telefone">
+                <input type="tel" name="telefone" id="telefone" placeholder='11 911112222'>
+                <div class='verifica'>
+                    <button type="submit" class='botao-verificar' id='verificar'>Verificar</button>
+                    {% include 'parciais/_messages.html' %}
+                </div>
+            </div>
+        </form>
+        {% endif %}
+
+        <div class="campo-input">
+            <label style='color:#2a2a2a'>Altere sua senha de login abaixo</label>
+            <div class='btn-iterativo'>
+                <button class='btn'>Redefinir Senha</button>
+            </div>
+        </div>
+    </div>
+    
+{% endblock conteudo %}
+ 

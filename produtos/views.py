@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from django.db.models import Sum
+from requests import request
 from produtos.models import EstoqueModel
 from .forms import EstoqueForm
+from inicio.forms import UserForm
 from inicio.models import UserModel
 from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
@@ -41,11 +43,10 @@ class EditarView(LoginRequiredMixin, View):
         if form.is_valid():
             form.save()
             return redirect('produtos')
-        print(form.errors)
         return render(request, self.template_name, self.contexto)
 
 
-# DASHBOARD E PRODUTO
+# DASHBOARD, PRODUTO E PERFIL
 
 class DashBoardView(LoginRequiredMixin, View):
     template_name = 'dash.html'
@@ -117,3 +118,37 @@ class ProdutosView(LoginRequiredMixin, View):
             messages.error(
                 request, 'Preencha o formulário, e tente novamente!')
             return redirect('produtos')
+
+
+class PerfilView(LoginRequiredMixin, View):
+    template_name = 'perfil.html'
+    def setup(self, request, *args, **kwargs):
+        user = UserModel.objects.all().filter(usuario=request.user).values()
+        token = Token.objects.get_or_create(user=request.user)[0]
+        senha = user[0]['senha']
+        telefone = user[0]['telefone']
+
+        self.contexto = {
+            'token': token,
+            'senha': senha,
+            'telefone': telefone,
+        }
+        super().setup(request, *args, **kwargs)
+    
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, self.contexto)
+
+    def post(self, request, *args, **kwargs):
+        user = get_object_or_404(UserModel, pk=request.user.id)
+        telefone = request.POST.get('telefone')
+        if len(telefone) < 11 or not telefone.isnumeric():
+            if len(telefone) == 0:
+                messages.error(request, 'Sem número para verificar')
+                return render(request, self.template_name, self.contexto)
+
+            messages.error(request, 'Número de telefone não está válido.')
+            return render(request, self.template_name, self.contexto)
+        user.telefone = telefone
+        user.save()
+        return redirect('perfil')
+

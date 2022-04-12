@@ -23,7 +23,7 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = UserModel
-        fields = ('usuario', 'email', 'senha')
+        fields = ('usuario', 'email', 'senha', 'telefone')
         widgets = {
                 'senha': forms.PasswordInput(),
             }

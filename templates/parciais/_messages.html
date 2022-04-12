@@ -2,8 +2,7 @@
 {% if messages %}
     <br>
     {% for message in messages %}
-        <div style='  color: rgb(226, 20, 20);
-        font-weight:600;'>
+        <div class={{message.tags}}>
             {{ message }}
         </div>
     {% endfor %}
