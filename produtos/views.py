@@ -55,15 +55,22 @@ class DashBoardView(LoginRequiredMixin, View):
         self.token_valido_ou_n = UserModel.objects.get(
             usuario=request.user).token
             
-        preco = EstoqueModel.objects.filter(usuario=request.user).aggregate(Sum('preco'))
-        preco = preco['preco__sum']
-        if not preco:
-            preco = 0
-       
+        user = EstoqueModel.objects.filter(usuario=request.user)
+        total_em_estoque = user.aggregate(Sum('quantidade'))
+        total_em_estoque = total_em_estoque['quantidade__sum']
+        valores = user.aggregate(Sum('preco'))
+        valores = valores['preco__sum'] 
+        valores_total = valores * total_em_estoque
+        if not valores_total:
+            valores_total = 0
+
+        media_valor = valores / user.count()
 
         self.contexto = {
-            'produtos': EstoqueModel.objects.filter(usuario=request.user),
-            'marcas': round(preco, 2)
+            'produtos': user,
+            'valor_total': round(valores_total,2),
+            'media_valor': round(media_valor),
+            'total_estoque': total_em_estoque,
         }
         super().setup(request, *args, **kwargs)
 

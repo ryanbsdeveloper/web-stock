@@ -1,13 +1,16 @@
 {% extends 'base_produtos.html' %}
 
-{% block titulo %}Dashboard{% endblock titulo %}
+{% block titulo %}Dashboa
+rd{% endblock titulo %}
 {% block usuario %}<strong style='color: #5335f9;'> Olá,</strong> {{request.user}}{% endblock usuario %}
 
 {% block conteudo %}
+    <input type="hidden" id='em-estoque' value={{total_estoque}}>
+    <input type="hidden" id='media-valores' value={{media_valor}}>
     <div class="cards">
         <div class="card">
             <div class="card-content">
-                <div class="number">R$ {{marcas}}</div>
+                <div class="number">R$ {{valor_total}}</div>
                 <div class="card-name">Valor Total do estoque</div>
             </div>
             <div class="icon-box">
