@@ -100,13 +100,13 @@
 }
 
 .sidebar ul li:hover a {
-    color: #5335f9;
+    color: #000000;
 }
 
 .sidebar ul li a {
     width: 100%;
     text-decoration: none;
-    color: #fff;
+    color: rgb(255, 255, 255);
     height: 60px;
     display: flex;
     align-items: center;

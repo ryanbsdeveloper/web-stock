@@ -23,7 +23,7 @@
         {% else %}
         <form method="post">{% csrf_token %}
             <div class="campo-telefone">
-                <input type="tel" name="telefone" id="telefone" placeholder='11 911112222'>
+                <input type="tel" name="telefone" placeholder='11 911112222'>
                 <div class='verifica'>
                     <button type="submit" class='botao-verificar' id='verificar'>Verificar</button>
                     {% include 'parciais/_messages.html' %}
