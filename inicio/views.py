@@ -1,3 +1,4 @@
+from re import template
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views.generic.base import View
@@ -166,3 +167,7 @@ class AuthView(LoginRequiredMixin, View):
         messages.error(request, 'Token não confere!')
         
         return render(request, self.template_name, self.contexto)
+
+
+class DoaçãoView(TemplateView):
+    template_name = 'doacao.html'

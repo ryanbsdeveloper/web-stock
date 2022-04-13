@@ -15,6 +15,10 @@ li{
   color: rgb(226, 20, 20);
   font-weight:600;
 }
+.alert-danger{
+  color: rgb(238, 38, 38);
+  font-weight: 600;
+}
 #sobre {
     display: flex;
     float: right;
@@ -588,4 +592,61 @@ label[for='bt_menu']{
 #bt_menu:checked ~ .menu{
 	margin-left:0;
 	}
+}
+.titulo {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  align-content: center;
+  justify-content: center;
+}
+
+i.fa-solid.fa-heart.fa-beat {
+  position: static;
+  color: #d53d3d;
+}
+
+.principal{
+  text-align: center;
+}
+
+.principal h2{
+  font-size: 35px;
+}
+.principal h4{
+  color: #626263;
+}
+
+.valores {
+  display: flex;
+  justify-content: center;
+}
+
+.reais{
+  margin: 15px;
+}
+
+p {
+  color: #28316b;
+  font-weight: 600;
+}
+
+#botaovoltar {
+  width: 300px;
+  height: 50px;
+  border-radius: 40px;
+  border: none;
+  background-color: #069;
+  color: white;
+  margin-top: 25px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+#botaovoltar:hover {
+  box-shadow: 1px 3px 10px #069;
+  transition: all .3s ;
+  cursor: pointer;
 }

@@ -18,7 +18,6 @@
     	<li><a href="#" style='color:#9563f9'>Sobre </a></li>
         {% if request.user.is_authenticated %}
         <li><i style='margin: 10px;font-size: 25px;color: #36ff36;' class="fa-solid fa-power-off"></i><a href="{% url 'dashboard' %}">Entrar</a></li>
-        <li><a href="{% url 'sair' %}">Sair</a></li>
         {% else %}
         <li><a href="{% url 'entrar' %}">Entrar</a></li>
         <li><a href="{% url 'cadastrar' %}">Cadastrar</a></li>
@@ -45,7 +44,9 @@
         <p class="texto-p">Todos os recursos para gerenciar seu estoque.</p>
         <p id="ultimo-texto"><b>Gerencie pelo nosso servidor ou consuma a API REST do seu estoque. </b></p>
 
-        <input type="button" value='DONATE' id="botaoApiAzul"><i class="fa-solid fa-hand-holding-dollar"></i></a>
+        <a href="{% url 'doação' %}"><input type="button" value='Doação' id="botaoApiAzul"><i class="fa-solid fa-hand-holding-dollar"></i></a>
+ 
     </div>
+
 </body>
 </html>

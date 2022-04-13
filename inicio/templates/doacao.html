@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block conteudo %}
+<div class="principal">
+    <div class='titulo'>
+        <i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 2s;"></i>
+        <h2>Doação</h2>
+    </div>
+    <div class='obs'>
+        <h4>Essa doação não será para ONGs ou Instituições de caridade, é apenas um recurso que achei interessante usar.</h4>
+    </div>   
+    
+    <div class='mercado-pago'>
+        <img src="{% static 'img/mercadopago.png' %}" style='width:200px; margin-top:150px'>
+        <div class='valores' style='margin-bottom:100px'>
+            <div class='reais'>
+                <p>5 Reais</p>
+                <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
+                data-preference-id="171999648-968624e8-4c60-4ea4-8636-3bae4878821b" data-source="button">
+                </script>
+            </div>
+            <div class="reais">
+                <p>20 Reais</p>
+                <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
+                data-preference-id="171999648-b2bbec87-231e-4218-b6f2-40f7c71e4860" data-source="button">
+                </script>            
+            </div>
+            <div class="reais">
+                <p>50 Reais</p>
+                <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
+                data-preference-id="171999648-0f417fe1-1a9a-42fb-b03a-b57cd360d120" data-source="button">
+                </script>            
+            </div>
+    
+        </div>
+    </div>
+
+    <a href="{% url 'home' %}"><button id="botaovoltar">Voltar ao ínicio</button></a>
+
+</div>
+
+{% endblock conteudo %}

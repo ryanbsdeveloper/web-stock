@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from django.db.models import Sum
-from requests import request
 from produtos.models import EstoqueModel
 from .forms import EstoqueForm
+from django.contrib.auth.models import User
 from inicio.forms import UserForm
 from inicio.models import UserModel
 from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
 from django.contrib import messages
+from django.contrib import auth
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -46,6 +47,41 @@ class EditarView(LoginRequiredMixin, View):
         return render(request, self.template_name, self.contexto)
 
 
+#NOVA SENHA
+
+class SenhaView(LoginRequiredMixin, View):
+    template_name = 'senha.html'
+
+    def setup(self, request, *args, **kwargs):
+        self.user_model = UserModel.objects.get(usuario=request.user)
+        self.user_valida = auth.authenticate(username=self.user_model.usuario, password=self.user_model.senha)
+        print(self.user_valida)
+
+        super().setup(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        senha = request.POST.get('senha1')
+        check_senha = request.POST.get('senha2')
+        if senha != check_senha:
+            messages.error(request, 'Senhas não conferem')
+            return render(request, self.template_name)
+
+        if len(senha) < 5:
+            messages.error(request, 'Senha deve ter 5 caracteres ou mais.')
+            return render(request, self.template_name)
+        
+        messages.success(request, 'Sua senha foi alterada com sucesso.')
+
+        self.user_valida.set_password(senha)
+        self.user_valida.save()
+        self.user_model.senha = senha
+        self.user_model.save()
+        auth.login(request, self.user_valida)
+        return redirect('dashboard')
+
 # DASHBOARD, PRODUTO E PERFIL
 
 class DashBoardView(LoginRequiredMixin, View):
@@ -60,15 +96,18 @@ class DashBoardView(LoginRequiredMixin, View):
         total_em_estoque = total_em_estoque['quantidade__sum']
         valores = user.aggregate(Sum('preco'))
         valores = valores['preco__sum'] 
-        valores_total = valores * total_em_estoque
-        if not valores_total:
+        if not valores or not total_em_estoque:
+            valores = 0
+            total_em_estoque = 1
+            media_valor = 1
             valores_total = 0
-
-        media_valor = valores / user.count()
+        else:
+            valores_total = valores * total_em_estoque
+            media_valor = valores / user.count()
 
         self.contexto = {
             'produtos': user,
-            'valor_total': round(valores_total,2),
+            'valor_total': round(valores_total, 2),
             'media_valor': round(media_valor),
             'total_estoque': total_em_estoque,
         }
@@ -135,6 +174,7 @@ class PerfilView(LoginRequiredMixin, View):
         senha = user[0]['senha']
         telefone = user[0]['telefone']
 
+        print(telefone)
         self.contexto = {
             'token': token,
             'senha': senha,

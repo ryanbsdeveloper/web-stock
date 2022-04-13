@@ -67,30 +67,36 @@
 
 
 <div class='cartas-produtos'>
-    {% for produto in produtos %}
-        <main>
-            <a href="{% url 'deletar' produto.id %}"><i class="fa-solid fa-trash-can"></a></i>
-            </i>
-            <img src="{{produto.imagem_produto.url}}">
-        <section>
-            <h1>{{produto.nome_produto}}</h1>
-            <div class="informations">
-                <div class="music-price">
-                    <div class="price">
-                        <strong>Em estoque: <span>{{produto.quantidade}}</span></strong>
-                        <strong>Preço: <span>${{produto.preco}}</span></strong>
-                        <strong>Marca: <span>{{produto.marca}}</span></strong>
-                        {% if produto.validade %}
-                            <strong>Validade: <span>{{produto.validade}}</span></strong>
-                        {% endif %}
+    {% if produtos %}
+        {% for produto in produtos %}
+            <main>
+                <a href="{% url 'deletar' produto.id %}"><i class="fa-solid fa-trash-can"></a></i>
+                </i>
+                <img src="{{produto.imagem_produto.url}}">
+            <section>
+                <h1>{{produto.nome_produto}}</h1>
+                <div class="informations">
+                    <div class="music-price">
+                        <div class="price">
+                            <strong>Em estoque: <span>{{produto.quantidade}}</span></strong>
+                            <strong>Preço: <span>${{produto.preco}}</span></strong>
+                            <strong>Marca: <span>{{produto.marca}}</span></strong>
+                            {% if produto.validade %}
+                                <strong>Validade: <span>{{produto.validade}}</span></strong>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <a href="{% url 'editar' produto.id %}" id="show-modal"><button type="submit"><i class="fa-solid fa-pen-to-square"></i> EDITAR</button></a>
-        </section>
-        </main>
-    {% endfor %}
+                <a href="{% url 'editar' produto.id %}" id="show-modal"><button type="submit"><i class="fa-solid fa-pen-to-square"></i> EDITAR</button></a>
+            </section>
+            </main>
+        {% endfor %}
+    {% else %}
+        <div style='text-align: center;'>
+            <img src="{% static 'img/semestoque.png' %}">
+        </div>
+    {% endif %}
 </div>
 
 {% endblock conteudo %}

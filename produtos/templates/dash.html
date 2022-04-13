@@ -1,8 +1,13 @@
 {% extends 'base_produtos.html' %}
 
-{% block titulo %}Dashboa
-rd{% endblock titulo %}
-{% block usuario %}<strong style='color: #5335f9;'> Olá,</strong> {{request.user}}{% endblock usuario %}
+{% block titulo %}Dashboard{% endblock titulo %}
+{% block usuario %}
+    {% if messages %}
+        {% include 'parciais/_messages.html' %}
+    {% else %}
+        <strong style='color: #5335f9;'> Olá,</strong> {{request.user}}
+    {% endif %}        
+{% endblock usuario %}
 
 {% block conteudo %}
     <input type="hidden" id='em-estoque' value={{total_estoque}}>
@@ -14,7 +19,10 @@ rd{% endblock titulo %}
                 <div class="card-name">Valor Total do estoque</div>
             </div>
             <div class="icon-box">
-                <i class="fa-solid fa-sack-dollar"></i>
+                <div id='tooltip2'>
+                    <span id='tooltipText2'>Soma total dos valores dos produtos em estoque.</span>
+                    <i class="fa-solid fa-sack-dollar"></i>
+                </div>
             </div>
         </div>
         <div class="card">
@@ -23,7 +31,10 @@ rd{% endblock titulo %}
                 <div class="card-name">Total de produtos</div>
             </div>
             <div class="icon-box">
-                <i class="fa-solid fa-boxes-stacked"></i>
+                <div id='tooltip2'>
+                    <span id='tooltipText2' style='left: -180%;'>Total de Produtos unitarios no estoque. </span>
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                </div>
             </div>
         </div>
     </div>

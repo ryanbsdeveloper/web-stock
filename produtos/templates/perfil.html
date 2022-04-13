@@ -1,7 +1,11 @@
 {% extends 'base_produtos.html' %}
 {% load static %}
 
-{% block usuario %}<strong style='color: #5335f9;'> Olá,</strong> {{request.user}}{% endblock usuario %}
+{% block usuario %}
+    <strong style='color: #5335f9;'> Olá,</strong> {{request.user}}
+{% endblock usuario %}
+
+
 {% block conteudo %}
     <div class='dados-pessoais'>
         <label>Seu e-mail de registro é: </label>
@@ -13,7 +17,10 @@
         <div class="campo-input">
             <i class="fa-solid fa-key"></i>
             <input type="text" id='token' value={{token}} class='leitura'>
-            <i class="fa-solid fa-circle-info"></i>
+            <div id='tooltip'>
+                <span id='tooltipText'>Seu token para acesso externo da plataforma</span>
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
         </div>
         <label>Telefone (Opcional)</label>
         {% if telefone %}
@@ -35,7 +42,7 @@
         <div class="campo-input">
             <label style='color:#2a2a2a'>Altere sua senha de login abaixo</label>
             <div class='btn-iterativo'>
-                <button class='btn'>Redefinir Senha</button>
+                <a href="{% url 'senha' %}"><button class='btn'>Redefinir Senha</button></a>
             </div>
         </div>
     </div>
