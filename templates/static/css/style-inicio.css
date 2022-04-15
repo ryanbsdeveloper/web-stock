@@ -269,21 +269,27 @@ input:not([type="checkbox"]){
 }
 
 /*estilo do botão submit */
-input[type="submit"]{
+input[type="submit"], button{
   width: 100%!important;
+  display: flex;
   cursor: pointer;
   background: #9563f9;
   padding: 8px 5px;
   color: #ffffff;
   height: auto;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 900;
   margin-bottom: 10px;
   transition: all 0.2s linear;
+  justify-content: center;
+  border-radius: 5px;
+  border: 0;
 }
-input[type="submit"]:hover{
+
+input[type="submit"]:hover, button:hover{
   background: #7b4dd6;
 }
+
 
 /*marcando os links para mudar de um formulário para outro */
 .link{
@@ -473,15 +479,17 @@ input[type="submit"]:hover{
 .criar-conta{
   width: 50%;
   margin: auto;
-  height: 1.7rem;
   text-align: center;
   background: #42b72a;
-  padding: 8px 8px;
+  padding: 10px 10px;
   border-radius: 7px;
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 10px;
   transition: all 0.2s linear;
+}
+.img-carregando{
+  width: 26px;
+  margin-right: 5px;
 }
 
 header img{
@@ -611,7 +619,7 @@ i.fa-solid.fa-heart.fa-beat {
 }
 
 .principal h2{
-  font-size: 35px;
+  font-size: 2em;
 }
 .principal h4{
   color: #626263;
@@ -650,3 +658,6 @@ p {
   transition: all .3s ;
   cursor: pointer;
 }
+
+/* loading */
+

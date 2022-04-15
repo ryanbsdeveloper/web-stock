@@ -1,10 +1,10 @@
+
+from re import I
 from django.shortcuts import render, redirect
-from django.views.generic.base import View
+from django.views import View
 from django.db.models import Sum
 from produtos.models import EstoqueModel
 from .forms import EstoqueForm
-from django.contrib.auth.models import User
-from inicio.forms import UserForm
 from inicio.models import UserModel
 from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
@@ -14,7 +14,6 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-# DELETAR E DETALHES
 
 def DelProduto(request, id):
     produto = get_object_or_404(EstoqueModel, pk=id)
@@ -26,6 +25,9 @@ class EditarView(LoginRequiredMixin, View):
     template_name = 'detalhe.html'
 
     def setup(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return super().setup(request, *args, **kwargs)
+
         id = kwargs['id']
         self.obj = get_object_or_404(EstoqueModel, pk=id)
         self.contexto = {
@@ -47,12 +49,13 @@ class EditarView(LoginRequiredMixin, View):
         return render(request, self.template_name, self.contexto)
 
 
-#NOVA SENHA
-
 class SenhaView(LoginRequiredMixin, View):
     template_name = 'senha.html'
 
     def setup(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return super().setup(request, *args, **kwargs)
+
         self.user_model = UserModel.objects.get(usuario=request.user)
         self.user_valida = auth.authenticate(username=self.user_model.usuario, password=self.user_model.senha)
         print(self.user_valida)
@@ -82,12 +85,14 @@ class SenhaView(LoginRequiredMixin, View):
         auth.login(request, self.user_valida)
         return redirect('dashboard')
 
-# DASHBOARD, PRODUTO E PERFIL
 
 class DashBoardView(LoginRequiredMixin, View):
     template_name = 'dash.html'
 
     def setup(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return super().setup(request, *args, **kwargs)
+
         self.token_valido_ou_n = UserModel.objects.get(
             usuario=request.user).token
             
@@ -135,6 +140,9 @@ class ProdutosView(LoginRequiredMixin, View):
     template_name = 'estoque.html'
 
     def setup(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return super().setup(request, *args, **kwargs)
+
         self.contexto = {
             'produtos': EstoqueModel.objects.order_by('-created_at').filter(usuario=request.user),
             'form': EstoqueForm(request.POST, request.FILES)
@@ -168,7 +176,11 @@ class ProdutosView(LoginRequiredMixin, View):
 
 class PerfilView(LoginRequiredMixin, View):
     template_name = 'perfil.html'
+
     def setup(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return super().setup(request, *args, **kwargs)
+
         user = UserModel.objects.all().filter(usuario=request.user).values()
         token = Token.objects.get_or_create(user=request.user)[0]
         senha = user[0]['senha']

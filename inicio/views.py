@@ -89,11 +89,11 @@ class SingInView(View):
     template_name = 'entrar.html'
 
     def setup(self, request, *args, **kwargs):
+        self.contexto = {
+            'form': UserForm(request.POST or None),
+        }
         super().setup(request, *args, **kwargs)
 
-        self.contexto = {
-            'form': UserForm(request.POST or None)
-        }
 
     def get(self, request):
         return render(request, self.template_name, self.contexto)
@@ -109,8 +109,9 @@ class SingInView(View):
         else:
             user_valida = auth.authenticate(username=user, password=senha)
             token_valida_do_usuario = UserModel.objects.get(usuario=user).token
-
+            
             if user_valida:
+
                 auth.login(request, user_valida)
                 t = Token.objects.get_or_create(user=request.user)[0]
                 if not token_valida_do_usuario:

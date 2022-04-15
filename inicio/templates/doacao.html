@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block conteudo %}
+<a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
+
 <div class="principal">
     <div class='titulo'>
         <i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 2s;"></i>
@@ -10,9 +12,12 @@
     <div class='obs'>
         <h4>Essa doação não será para ONGs ou Instituições de caridade, é apenas um recurso que achei interessante usar.</h4>
     </div>   
-    
+
     <div class='mercado-pago'>
-        <img src="{% static 'img/mercadopago.png' %}" style='width:200px; margin-top:150px'>
+        <img src="{% static 'img/mercadopago.png' %}" style='
+        width: 70%;
+        margin-top: 150px;
+        max-width: 400px;'>
         <div class='valores' style='margin-bottom:100px'>
             <div class='reais'>
                 <p>5 Reais</p>
@@ -35,8 +40,6 @@
     
         </div>
     </div>
-
-    <a href="{% url 'home' %}"><button id="botaovoltar">Voltar ao ínicio</button></a>
 
 </div>
 

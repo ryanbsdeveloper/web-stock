@@ -185,8 +185,6 @@ EMAIL_HOST_USER = 'ryanbsdeveloper@gmail.com'
 EMAIL_HOST_PASSWORD = '842684265ry'
 
 
-#  LOGIN REQUIRED
-LOGIN_URL = 'entrar'
 
 # AUTHENTICATION_BACKENDS = [
 #     'social_core.backends.facebook.FacebookOAuth2',
@@ -196,7 +194,5 @@ LOGIN_URL = 'entrar'
 # SOCIAL_AUTH_FACEBOOK_KEY = '667491794584304'
 # SOCIAL_AUTH_FACEBOOK_SECRET = '667491794584304'
 
-# LOGIN_URL = 'login'
-# LOGIN_REDIRECT_URL = 'index'
-# LOGOUT_URL = 'logout'
-# LOGOUT_REDIRECT_URL = 'login'
+#  LOGIN REQUIRED
+LOGIN_URL = 'entrar'

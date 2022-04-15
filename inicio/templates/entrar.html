@@ -11,7 +11,7 @@
           <!--FORMULÁRIO DE LOGIN-->
         <img src="{% static 'img/logo.png' %}"style='width:110px;height:auto'>
         <div id="login">
-            <form method="POST" >
+            <form method="POST">
                 {% csrf_token %}
                 <h2>Faça o login</h2>
                 <div class="label-float"> 
@@ -26,9 +26,11 @@
                 </div>
 
                 {% include 'parciais/_messages.html' %}
+
                 <p> 
-                    <input type="submit" value="Logar" /> 
+                    <input type="submit" value="Logar" />
                 </p>
+    
                 <p class="link">
                     <a href="{% url 'cadastrar' %}">Esqueceu o email?</a>
                 </p>
@@ -40,6 +42,8 @@
         </div>  
     </div>
 </div>
+
+<script src="{% static 'js/js.js' %}"></script>
 
 
 {% endblock conteudo %}

@@ -940,3 +940,11 @@ i.fa-solid.fa-circle-info {
     opacity: 1;
     transition: opacity 0.5s ease;
 }
+
+.campo-input i{
+    margin-left: 10px;
+}
+
+.campo-input label{
+    margin-left: 10px;
+}
