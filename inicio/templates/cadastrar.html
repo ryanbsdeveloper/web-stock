@@ -10,7 +10,7 @@
         <img src="{% static 'img/logo.png' %}"style='width:110px;height:auto'>
               <!--FORMULÁRIO DE CADASTRO-->
         <div id="cadastro">
-            <form method="post" id="form"> 
+            <form method="post" id="MyForm"> 
                 {% csrf_token %}
                 <h2>Crie sua conta</h2>
                 {% for l in form %}
@@ -28,7 +28,7 @@
                 <div class="g-recaptcha" data-sitekey="{{recaptcha_site_key}}"></div>
                 {% include 'parciais/_messages.html' %}
                 <p> 
-                    <button type="submit" id='btn' onclick='funcao1()' disabled="disabled"><img src="{% static 'img/load.gif' %}" style='width:27px;margin-right:5px' id='load'> Cadastrar </button>
+                    <button type="submit" id='btnSalvar' ><img src="{% static 'img/load.gif' %}" style='width:27px;margin-right:5px' id='load'> Cadastrar </button>
                 </p>
                 
                 <p class="link">  
@@ -38,47 +38,29 @@
             <script>
                 document.getElementById('load').style.display = 'none';
 
-                function checkInputs(inputs) {
+                $( document ).ready(function() {
 
-                    var filled = true;
-                    
-                    inputs.forEach(function(input) {
-                        
-                      if(input.value === "") {
-                          filled = false;
-                      }
-                    
+                    $('#btnSalvar').on('click', function (e) {
+
+                        var button = $('#btnSalvar');
+
+                        button.prop('disabled', true);
+
+                        var valid = $("#MyForm").valid();
+                        console.log(valid);
+
+                        if (!valid) {
+                            e.preventDefault();
+                            button.prop('disabled', false);
+                            $("label.error").remove();
+
+                        } else {
+                            document.getElementById('load').style.display = 'block';
+                            $('#MyForm').submit();
+                        }
                     });
-                    
-                    return filled;
-                    
-                  }
-                  
-                  var inputs = document.querySelectorAll("input");
-                  var button = document.querySelector("button");
-                  
-                  inputs.forEach(function(input) {
-                      
-                    input.addEventListener("keyup", function() {
-                  
-                      if(checkInputs(inputs)) {
-                        button.disabled = false;
-                      } else {
-                        button.disabled = true;
-                      }
-                      
-                    });
-                  
-                  });
-                function funcao1()
-                {
-                document.getElementById('load').style.display = 'block';
-               }
+                });    
             </script>
-            {% comment %} <p> 
-                <button onclick="funcao1()" type="submit" id='cadastrar'> Cadastrar </button>
-            </p> {% endcomment %}
-
         </div>
     </div>
 </div>

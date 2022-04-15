@@ -233,10 +233,6 @@ p{
 p:first-child{
   margin: 0px;
 }
-label{
-  color: #405c60;
-  position: relative;
-}
 
 /**** advanced input styling ****/
 /* placeholder */
@@ -393,6 +389,9 @@ input[type="submit"]:hover, button:hover{
 }
 
 /* PLACEHOLDER MANEIRO*/
+label.error{
+	display:none;
+}
 
 .label-float{
     position: relative;
@@ -658,6 +657,3 @@ p {
   transition: all .3s ;
   cursor: pointer;
 }
-
-/* loading */
-
