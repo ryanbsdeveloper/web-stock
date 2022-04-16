@@ -35,10 +35,12 @@
                     <a href="{% url 'entrar' %}">Já tem uma conta?</a>
                 </p>
             </form>
+            <script src="{% static 'js/jquery.js' %}"></script>
             <script>
                 document.getElementById('load').style.display = 'none';
 
                 $( document ).ready(function() {
+                    $("label.error").remove();
 
                     $('#btnSalvar').on('click', function (e) {
 
@@ -50,9 +52,9 @@
                         console.log(valid);
 
                         if (!valid) {
+                            $("label.error").remove();
                             e.preventDefault();
                             button.prop('disabled', false);
-                            $("label.error").remove();
 
                         } else {
                             document.getElementById('load').style.display = 'block';

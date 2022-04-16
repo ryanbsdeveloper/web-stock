@@ -8,6 +8,9 @@ class UserModel(models.Model):
     telefone = PhoneNumberField(blank=True, null=True)
     token = models.BooleanField(verbose_name='Verificação do token', default=False)
 
+    def __str__(self) -> str:
+        return self.usuario
+
     class Meta:
         verbose_name = "Usuário"
         verbose_name_plural = "Usuários"

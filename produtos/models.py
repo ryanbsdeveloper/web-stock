@@ -10,9 +10,10 @@ class EstoqueModel(models.Model):
     validade = models.DateField(verbose_name='Validade do produto',null=True, blank=True)
     marca = models.CharField(max_length=50, verbose_name='Marca do produto')
     preco = models.FloatField(verbose_name='Preço unitário ')
-
     created_at = models.DateTimeField(auto_now_add=True,  null=True)
 
+    def __str__(self) -> str:
+        return self.nome_produto
 
     class Meta:
         verbose_name = 'Produto'

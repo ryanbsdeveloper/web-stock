@@ -7,6 +7,7 @@
 
 
 {% block conteudo %}
+<div class="main2">
     <div class='dados-pessoais'>
         <label>Seu e-mail de registro é: </label>
         <div class="campo-input">
@@ -18,7 +19,7 @@
             <i class="fa-solid fa-key"></i>
             <input type="text" id='token' value={{token}} class='leitura'>
             <div id='tooltip'>
-                <span id='tooltipText'>Seu token para acesso externo da plataforma</span>
+                <span id='tooltipText'>Este seu token é para acesso externo a plataforma.</span>
                 <i class="fa-solid fa-circle-info"></i>
             </div>
         </div>
@@ -46,6 +47,6 @@
             </div>
         </div>
     </div>
-    
+</div>
 {% endblock conteudo %}
  

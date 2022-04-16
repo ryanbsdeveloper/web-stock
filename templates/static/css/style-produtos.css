@@ -135,6 +135,17 @@ html {
     background: #121212;
 }
 
+.main2 {
+    position: absolute;
+    top: 60px;
+    width: calc(100% - 260px);
+    min-height: calc(100vh - 60px);
+    left: 220px;
+    background: #121212;
+    display: flex;
+    justify-content: center;
+}
+
 .cards {
     width: 100%;
     padding: 35px 20px;
@@ -542,6 +553,8 @@ main .informations img {
 
 .modal:target {
     opacity: 1;
+    width: 100%;
+    height: 100%;
     top: 0;
 }
 
@@ -863,7 +876,7 @@ i.fa-solid.fa-circle-info {
 
 #tooltipText{
     position: absolute;
-    left: 50%;
+    left: -466%;
     top:0;
     transform: translateX(-50%);
     background-color: #616161;
@@ -880,7 +893,7 @@ i.fa-solid.fa-circle-info {
 #tooltipText::before{
     content: "";
     position: absolute;
-    left: 50%;
+    left: 93%;
     top: 100%;
     transform: translateX(-50%);
     border: 15px solid;

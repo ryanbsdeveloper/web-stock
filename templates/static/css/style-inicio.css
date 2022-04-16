@@ -203,7 +203,6 @@ a.links{
   position: absolute;
   margin: 20px;
   font-size: 50px;
-  text-shadow: 6px 9px 7px black;
   color: darkgrey;
 
 }
@@ -390,7 +389,8 @@ input[type="submit"]:hover, button:hover{
 
 /* PLACEHOLDER MANEIRO*/
 label.error{
-	display:none;
+  display: none;
+  color: rgb(255, 0, 0);
 }
 
 .label-float{
