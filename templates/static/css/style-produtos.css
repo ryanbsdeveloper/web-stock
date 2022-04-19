@@ -5,6 +5,14 @@
     font-family: 'poppins', sans-serif;
 }
 
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 0px 0px 1px #5500ff;
+    width: 100%;
+    border-radius: 42%;
+}
+
 .topbar {
     position: fixed;
     background-color: #121212;
@@ -433,7 +441,7 @@ main .informations img {
 .caixadepesquisa {
     position: absolute;
     top: 50%;
-    left: 55%;
+    left: 52%;
     transform: translate(-50%, -50%);
     height: 3vw;
     min-height: 30px;
@@ -465,6 +473,7 @@ main .informations img {
 .textodepesquisa {
     border: none;
     background: none;
+    font-weight: 700;
     outline: none;
     float: left;
     padding: 0%;
@@ -481,12 +490,13 @@ main .informations img {
     top: 50%;
     left: 85%;
     transform: translate(-50%, -50%);
+    font-size: 0px;
 }
 
 .add-produto button {
-    width: 9vw;
+    width: 14vw;
     height: 3vw;
-    min-height: 30px;
+    min-height: 40px;
     min-width: 40px;
     font-size: 18px;
     font-weight: 600;
@@ -494,7 +504,6 @@ main .informations img {
     border-radius: 20px;
     border: 0;
     cursor: pointer;
-    box-shadow: 5px 4px 8px 1px black;
 }
 
 /* Mudando o Modal do Bootstrap */
@@ -505,6 +514,111 @@ main .informations img {
     padding-left: 0px; 
     margin-right: 0px; 
     margin-left: 0px; 
+}
+.modal-backdrop.show {
+    opacity: .5;
+    width: 100%;
+    height: 100%;
+}
+.modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+    background: #2b2b2b;
+}
+
+.modal-body h3 {
+    margin: 0;
+    color: white;
+    font-size: x-large;
+    font-weight: 900;
+    text-align: center;
+}
+
+.modal-header .close {
+    padding: 0;
+    margin: auto;
+    padding-right: 0;
+}
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0px 1px 0px #fff;
+    opacity: .5;
+}
+
+.modal-header {
+    display: -ms-flexbox;
+    /* display: flex; */
+    -ms-flex-align: start;
+    /* align-items: flex-start; */
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    background: #2b2b2b;
+    border-bottom: 2px solid #9563f9;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);
+    height: 65px;
+
+}
+
+.label-float{
+    position: relative;
+}
+
+.label-float input{
+    border: 0;
+    border-bottom: 2px solid #82838b;
+    min-width: 180px;
+    background-color: #606060;
+    margin-bottom: 5px;
+    transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    border-radius: 5px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.label-float input:focus{
+    border-bottom: 2px solid #3951b2;
+}
+
+.label-float input::placeholder{
+    color:transparent;
+}
+
+.label-float label{
+    margin-bottom: 0px;
+    margin-top: 5px;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    }
+
+.label-float input:required:invalid + label{
+    color: rgb(255, 255, 255);
+    }
+.label-float input:focus:required:invalid{
+    border-bottom: 2px solid red;
+}
+.label-float input:required:invalid + label:before{
+    content: ' ';
+}
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label{
+    font-size: 13px;
+    margin-top: 0;
+    color: #3951b2;
+}
+
+input#id_imagem_produto {
+    padding: 5px;
 }
 
 a i.fa-solid.fa-trash-can {
@@ -558,9 +672,11 @@ i.fa-solid.fa-cart-plus {
 }
 
 .textbox {
-    width: 90%;
+    width: 100%;
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
 }
 
@@ -571,13 +687,14 @@ i.fa-solid.fa-cart-plus {
     font-size: 15px;
     text-align: center;
     font-weight: 600;
+    padding: 5px;
     width: 100%;
-    border-bottom: 1.5px solid #787878;
-    background-color: transparent;
+    border-bottom: 2.5px solid #000000;
+    background-color: #606060;
 }
 
 .textbox input:focus {
-    border-bottom: 1.5px solid #0047ff;
+    border-bottom: 2.8px solid #0047ff;
     transition: all ease 0.8s;
     color: #fff;
 }
@@ -593,8 +710,8 @@ i.fa-solid.fa-cart-plus {
 
 
 .textbox label {
-    color: rgb(155 155 155);
-    font-weight: 700;
+    color: rgb(96 96 96);
+    font-family: fantasy;
     letter-spacing: 1px;
     width: 100px;
     padding-right: 10px;
@@ -649,47 +766,25 @@ i.fa-solid.fa-cart-plus {
 /* BTN DA ABA EDITAR */
 
 .btn {
-    display: inline-block;
-    background-color: transparent;
-    color: #fff;
-    width: 180px;
-    line-height: 60px;
-    text-align: center;
+    width: 100%!important;
+    display: flex;
+    cursor: pointer;
+    background: #9563f9;
+    padding: 8px 5px;
+    color: #ffffff;
+    height: auto;
     font-size: 18px;
-    border-radius: 50px;
-    transition: all ease 0.5s;
+    font-weight: 900;
+    transition: all 0.2s linear;
+    justify-content: center;
+    border-radius: 5px;
+    border: 0;
 }
 
 .btn-iterativo{
     display: flex;
 }
 
-.btn-iterativo button {
-    align-items: center;
-    position: relative;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    z-index: 1;
-    margin: auto;
-    margin-top: 30px;
-}
-
-.btn-iterativo button:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 60px;
-    height: 60px;
-    border-radius: 50px;
-    background-color: #232cdd;
-    z-index: -1;
-    transition: all ease 0.5s;
-}
-
-.btn-iterativo button:hover:before {
-    width: 100%;
-}
 
 .dados-pessoais{
     display: flex;

@@ -21,67 +21,51 @@
 
 {% block conteudo %}
 <div class="main">
-{% comment %} <aside id="modal" class="modal">
-    <div class="content-modal">
-        <header>
-            <a href="#" class="close-modal">X</a>
-            <h2><i class="fa-solid fa-cart-plus"></i></h2>
-        </header>
-        <article>
-            <form method="post" class='submit-form' enctype="multipart/form-data">
-                {% csrf_token %}
 
-                <div class="textbox">
-                    <label>Nome</label>
-                    {{form.nome_produto}}
-                </div>
-
-                <div class="textbox">
-                    <label>Imagem</label>
-                    {{form.imagem_produto}}
-                </div>
-
-                <div class="textbox">
-                    <label>Quantidade</label>
-                    {{form.quantidade}}
-                </div>
-
-                <div class="textbox">
-                    <label>Validade</label>
-                    {{form.validade}}
-                </div>
-
-                <div class="textbox">
-                    <label>Marca</label>
-                    {{form.marca}}
-                </div>
-
-                <div class="textbox">
-                    <label>Preço</label>
-                    {{form.preco}}
-                </div>
-
-                {% include 'parciais/_messages.html' %}
-                <div class="btn-iterativo">
-                    <button type="submit" class="btn">Adicionar Produto</button>
-                </div>
-            </form>
-        </article>
-    </div>
-</aside> {% endcomment %}
 
 <div class="modal fade bd-example-modal-lg show" id="modal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <img src="{% static 'img/logo.png' %}" style='margin: -12px 43%;width: 55px;'>
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body" id="dynamic-content">
-                <input type="email" name="" id="">
-                <input type="email" name="" id="">
-                <input type="email" name="" id="">
+                <h3>Adicione produtos</h3>
+                <form method="post" class='submit-form' enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class='label-float'>
+                        <div class="textbox">
+                            <label>Nome</label>
+                            {{form.nome_produto}}
+                        </div>
+                        <div class="textbox">
+                            <label>Imagem</label>
+                            {{form.imagem_produto}}
+                        </div>
+                        <div class="textbox">
+                            <label>Quantidade</label>
+                            {{form.quantidade}}
+                        </div>
+                        <div class="textbox">
+                            <label>Validade</label>
+                            {{form.validade}}
+                        </div>
+                        <div class="textbox">
+                            <label>Marca</label>
+                            {{form.marca}}
+                        </div>
+                        <div class="textbox">
+                            <label>Preço</label>
+                            {{form.preco}}
+                        </div>    
+                    </div>
+                    {% include 'parciais/_messages.html' %}
+                    <hr>
+                    <button type="submit" class="btn">Adicionar Produto</button>
+                </form>
             </div>
         </div>
     </div>
