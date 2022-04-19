@@ -497,90 +497,15 @@ main .informations img {
     box-shadow: 5px 4px 8px 1px black;
 }
 
-/* Janela Modal */
+/* Mudando o Modal do Bootstrap */
 
-
-.modal {
-    position: fixed;
-    top: -100vh;
-    left: 0;
-    z-index: 99999999;
-    background: rgba(0, 0, 0, 0.75);
-    width: 100vw;
-    height: 100vh;
-    opacity: 0;
-    transition: opacity 0.35s ease;
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 0%; 
+    padding-right: 0px;
+    padding-left: 0px; 
+    margin-right: 0px; 
+    margin-left: 0px; 
 }
-
-.modal .content-modal {
-    width: 100%;
-    max-width: 500px;
-    position: fixed;
-    left: 50%;
-    top: -100vh;
-    transition: top 0.35s ease;
-    margin-left: -250px;
-    background: white;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    z-index: 9999999;
-}
-
-.modal h2 {
-    padding: 0.5em;
-    text-align: center;
-    color: #ffffff;
-    margin: 0;
-    background: #4a4a4a;
-}
-
-.modal article {
-    height: 67vh;
-    background: #4a4a4a;
-}
-
-.close-modal {
-    color: #ffffff;
-    position: absolute;
-    top: 0.2em;
-    right: 0.375em;
-    margin: 0;
-    padding: 5px;
-    font-weight: bold;
-    font-size: 1.5em;
-    text-decoration: none;
-}
-
-.modal:target {
-    opacity: 1;
-    width: 100%;
-    height: 100%;
-    top: 0;
-}
-
-.modal .btn-close-modal {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 99999991;
-}
-
-.modal:target .content-modal {
-    top: 50px;
-    transition: top 0.35s ease;
-}
-
-@media (max-width: 500px) {
-    .modal .content-modal {
-        width: 90%;
-        max-width: none;
-        left: 5%;
-        margin-left: 0;
-    }
-
-}
-
 
 a i.fa-solid.fa-trash-can {
     font-size: 25px;

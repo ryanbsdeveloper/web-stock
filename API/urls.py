@@ -3,7 +3,7 @@ from rest_framework.routers import SimpleRouter
 from .views import EstoqueViewSet
 
 router = SimpleRouter()
-router.register('estoque', EstoqueViewSet)
+router.register('estoque', EstoqueViewSet, basename='Estoque')
 
 
 

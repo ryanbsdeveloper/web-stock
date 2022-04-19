@@ -1,7 +1,12 @@
 {% extends 'base_produtos.html' %}
+{% load bootstrap4 %}
 {% load static %}
 
+{% block head %}{% bootstrap_css %}
+{% endblock head %}
+
 {% block usuario %}
+
 <form method="get" >
     <div class="caixadepesquisa">
         <input class="textodepesquisa" type="text" placeholder="Buscar produto" name='busca'>
@@ -10,13 +15,13 @@
 </form>
 
 <div class='add-produto'>
-    <a href="#modal" id="show-modal"><button type="submit"><i class="fa-solid fa-cart-plus" style='font-size: 100%;'></i></button></a>
+    <a href="#modal" data-toggle="modal"><button type="submit"><i class="fa-solid fa-cart-plus" style='font-size: 100%;'></i></button></a>
 </div>
 {% endblock usuario %}
 
 {% block conteudo %}
 <div class="main">
-<aside id="modal" class="modal">
+{% comment %} <aside id="modal" class="modal">
     <div class="content-modal">
         <header>
             <a href="#" class="close-modal">X</a>
@@ -63,8 +68,24 @@
             </form>
         </article>
     </div>
-</aside>
+</aside> {% endcomment %}
 
+<div class="modal fade bd-example-modal-lg show" id="modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="dynamic-content">
+                <input type="email" name="" id="">
+                <input type="email" name="" id="">
+                <input type="email" name="" id="">
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class='cartas-produtos'>
     {% if produtos %}
@@ -99,4 +120,5 @@
     {% endif %}
 </div>
 </div>
+{% bootstrap_javascript jquery='full' %}
 {% endblock conteudo %}
