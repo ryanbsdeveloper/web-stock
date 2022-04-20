@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'bootstrap4',
 
     'inicio',
+    'perfil',
     'produtos',
     'API',
 ]

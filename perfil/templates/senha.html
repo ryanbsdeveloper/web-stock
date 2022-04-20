@@ -1,0 +1,27 @@
+{% extends 'base_produtos.html' %}
+
+{% block conteudo %}
+<div class="main2">
+    {% include 'parciais/_aba-perfil.html' %}
+    <div class="container-2">
+        <h2 style='text-align: center;
+        color: #757575;
+        margin-top: 150px;'>
+        Redefina sua senha </h2>
+
+
+    <form method="post">{% csrf_token %}
+        <div class='edit-form'>
+            <input type="text" name="senha1" placeholder='Senha'>
+            <input type="text" name="senha2" placeholder='Confirme a senha'>
+            <div class='verifica'>
+                <button type="submit" class='botao-verificar' id='verificar'>Salvar</button>
+                {% include 'parciais/_messages.html' %}
+            </div>
+        </div>
+    </form>
+
+    </div>
+</div>
+
+{% endblock conteudo %}

@@ -1,0 +1,19 @@
+{% extends 'base_produtos.html' %}
+{% load static %}
+
+{% block usuario %}
+    Perfil <strong style='color: #5335f9;font-size: initial;'><i class="fa-solid fa-clock"></i> Usuário desde {{data}}</strong>
+{% endblock usuario %}
+
+
+{% block conteudo %}
+<div class="main2">
+    {% include 'parciais/_aba-perfil.html' %}
+    <div class="container-2">
+        <div class="editar-perfil" >
+            <h1 style='color:white;text-align:center'>EDITAR PERFIL</h1>
+    </div>
+</div>
+
+{% endblock conteudo %}
+ 

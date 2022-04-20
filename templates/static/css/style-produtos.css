@@ -38,11 +38,8 @@ hr {
 .logo h2 {
     color: #ffffff;
     width: 100%;
-    text-align: center;
-    font-family: monospace;
     padding-top: 18px;
-    padding-left: 15%;
-
+    padding-left: 20vw;
 }
 
 .search {
@@ -90,7 +87,7 @@ hr {
     height: calc(100% - 0px);
     background: #565656;
     overflow-x: hidden;
-    box-shadow: 1px 20px 20px 4px rgb(0 0 0);
+    box-shadow: -12px 2px 20px 13px rgb(0 0 0);
     z-index: 2;
 }
 
@@ -148,7 +145,7 @@ html {
     top: 60px;
     width: calc(100% - 260px);
     min-height: calc(100vh - 60px);
-    left: 220px;
+    left: 260px;
     background: #121212;
     display: flex;
     justify-content: center;
@@ -980,4 +977,37 @@ i.fa-solid.fa-circle-info {
 
 .campo-input label{
     margin-left: 10px;
+}
+
+/* ABA PERFIL */
+
+.container-1{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+    margin-top: 29px;
+    margin-left: 10px;
+}
+
+.container-2 {
+    width: 100%;
+    min-width: 460px;
+}
+
+.container-1 button {
+    border: 0;
+    padding: 15px;
+    font-size: medium;
+    font-weight: 600;
+    background: transparent;
+    color: #ffffff;
+    border-left: 10px solid #5335f9;
+}
+.container-1 button:hover {
+    background: transparent;
+    color: #ffffff;
+    border-left: 10px solid #ffffff;
+    cursor: pointer;
 }

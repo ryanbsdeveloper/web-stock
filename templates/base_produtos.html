@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <script type="text/javascript" src="{% static 'js/javascript.js' %}" defer></script>
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,7 @@
 
     <!--Emojis-->
     <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script>
-
+    
     {% block head %}{% endblock head %}
     <link rel="stylesheet" href="{% static 'css/style-produtos.css' %}">
     <title>{% block titulo %}{% endblock titulo %}</title>
@@ -58,9 +59,9 @@
 
         {% block conteudo %}{% endblock conteudo %}
     <!--grafico js--> 
+    <script src="{% static 'js/javascript.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <script src="{% static 'js/chart2.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/javascript.js' %}" defer></script>
 </body>
 
 </html>
