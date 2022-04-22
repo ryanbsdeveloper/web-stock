@@ -1,3 +1,5 @@
+import requests
+
 def mês(num:int) -> str:
     if num == 1:
         return 'Janeiro'
@@ -23,3 +25,17 @@ def mês(num:int) -> str:
         return 'Novembro'
     elif num == 12:
         return 'Dezembro'
+
+def num_valid(num:str) -> int:
+    valid = num
+    if num[0:2] != '55':
+        valid = '+55' + num
+    else:
+        valid = '+' + num
+    
+    requests.post('https://textbelt.com/text', {
+      'phone': f'{valid}',
+      'message': 'Agradecemos por utilizar nossa plataforma💜! Contato do desenvolvedor: 11990132993',
+      'key': '9850d2003f242855986870c7b190bb68ec53ec6aTSyTv0LHHHrN9wpjhylPQKgeu',
+    })
+

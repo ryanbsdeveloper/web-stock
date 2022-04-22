@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.contrib import auth
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .utils import mês
+from .utils import mês, num_valid
 
 
 class SenhaView(LoginRequiredMixin, View):
@@ -70,8 +70,8 @@ class PerfilView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         user = get_object_or_404(UserModel, pk=request.user.id)
         telefone = request.POST.get('telefone')
-        print(telefone)
-        if len(telefone) < 11 or not telefone.isnumeric():
+        telefone = telefone.replace(' ', '').replace('-','')
+        if len(telefone) != 11 or not telefone.isnumeric():
             if len(telefone) == 0:
                 messages.error(request, 'Sem número para verificar')
                 return render(request, self.template_name, self.contexto)
@@ -79,6 +79,7 @@ class PerfilView(LoginRequiredMixin, View):
             messages.error(request, 'Número de telefone não está válido')
             return render(request, self.template_name, self.contexto)
         user.telefone = telefone
+        num_valid(telefone)
         user.save()
         messages.success(request, 'Número de telefone adicionado')
 

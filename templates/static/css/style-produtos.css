@@ -838,10 +838,14 @@ i.fa-solid.fa-circle-info {
 .alert-danger{
     color: rgb(238, 38, 38);
     font-weight: 600;
+    background: transparent;
+    margin: auto;
 }
 .alert-success{
     color:#098f00;
     font-weight: 600;
+    background: transparent;
+    margin: auto;
 }
 
 /* TOOLTIP */
@@ -965,8 +969,7 @@ i.fa-solid.fa-circle-info {
     background: #afafaf;
     float: right;
     margin-left: 30px;
-    text-align: end;
-
+    direction: ltr;
 }
 
 .campo-input label{
