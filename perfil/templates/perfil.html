@@ -1,19 +1,64 @@
 {% extends 'base_produtos.html' %}
+{% load bootstrap4 %}
 {% load static %}
 
+{% block head %}{% bootstrap_css %}{% endblock head %}
+
 {% block usuario %}
-    Perfil <strong style='color: #5335f9;font-size: initial;'><i class="fa-solid fa-clock"></i> Usuário desde {{data}}</strong>
+    Perfil <strong style='color: #5335f9;font-size: 18px;'><i class="fa-solid fa-calendar-days"></i> Usuário desde {{data}}</strong>
+    <div class='menu-perfil'>
+        <a href="#modal" data-toggle="modal"><i class="fa-solid fa-gear fa-2xl"></i></a>
+    </div>    
 {% endblock usuario %}
 
 
 {% block conteudo %}
-<div class="main2">
+<div class="main2">    
     {% include 'parciais/_aba-perfil.html' %}
     <div class="container-2">
-        <div class="editar-perfil" >
-            <h1 style='color:white;text-align:center'>EDITAR PERFIL</h1>
+        <div class="campo-info">
+            <h3>Informações pessoais</h3>
+            <p>Sua informações pessoais informadas na plataforma, prezamos pela segurança dos seu dados. qualquer duvída entre em <a href="http://">contato</a></p>.
+        </div>
+        <div class="campo-input">
+            <div class='input-group'>
+                <label>Nome de usuário</label>
+                <input type="text" value={{request.user}} readonly>
+            </div>
+            <p>Esse nome de usuário é unico e não pode ser alterado</p>.
+        </div>
+        <div class="campo-input">
+            <div class='input-group'>
+                <label>Email</label>
+                <input type="text" value={{request.user.email}} readonly>
+            </div>
+            <p>Seu email de login no servidor não pode ser alterado</p>.
+        </div>
+        {% if not telefone %}
+        <form method="post">{% csrf_token %}
+            <div class="campo-input">
+                {% include 'parciais/_messages.html' %}
+                <div class='input-group'>
+                        <label>Telefone</label>
+                        <input type="text" name='telefone' placeholder='Ex: 11 91111-2222'>    
+                </div>
+                <button type="submit" class="botao-verificar" id="verificar">Salvar</button>
+                <p>Adicione seu número de telefone pra receber o contato do <strong>desenvolvedor da plataforma</strong> via SMS</p>.
+            </div>
+        </form>
+        {% else %}
+            <div class="campo-input">
+                {% include 'parciais/_messages.html' %}
+                <div class='input-group'>
+                    <label>Telefone</label>
+                    <input type="text" value={{telefone}} readonly>
+                </div>
+                <p>Seu número de telefone já foi adicionado a seu dados, não poderá ser alterado</p>.
+            </div>
+        {% endif %}
     </div>
 </div>
 
+{% bootstrap_javascript jquery='full' %}
 {% endblock conteudo %}
  

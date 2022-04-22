@@ -1,12 +1,30 @@
 {% extends 'base_produtos.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block head %}{% bootstrap_css %}{% endblock head %}
+{% block usuario %}
+
+<div class='menu-perfil'>
+    <a href="#modal" data-toggle="modal"><i class="fa-solid fa-gear fa-2xl"></i></a>
+</div>
+
+{% endblock usuario %}
 
 {% block conteudo %}
 <div class="main2">
+
     {% include 'parciais/_aba-perfil.html' %}
     <div class="container-2">
+
+        <div class='obs'>
+            <h3>Observação</h3>
+            <p>Ao alterar sua senha de login, alterará também a senha de acesso ao servidor Django REST.</p>    
+        </div>
+
         <h2 style='text-align: center;
         color: #757575;
-        margin-top: 150px;'>
+        margin-top: 20px;'>
         Redefina sua senha </h2>
 
 
@@ -24,4 +42,5 @@
     </div>
 </div>
 
+{% bootstrap_javascript jquery='full' %}
 {% endblock conteudo %}

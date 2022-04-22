@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.views import View
 from inicio.models import UserModel
 from django.shortcuts import get_object_or_404
-from rest_framework.authtoken.models import Token
 from django.contrib import messages
 from django.contrib import auth
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -54,14 +53,11 @@ class PerfilView(LoginRequiredMixin, View):
             return super().setup(request, *args, **kwargs)
 
         user = UserModel.objects.all().filter(usuario=request.user).values()
-        token = Token.objects.get_or_create(user=request.user)[0]
         senha = user[0]['senha']
         telefone = user[0]['telefone']
         data = user[0]['created_at']
         data = f'{mês(data.month)} de {data.year}'
-        print(data)
         self.contexto = {
-            'token': token,
             'senha': senha,
             'telefone': telefone,
             'data':data,
@@ -74,32 +70,19 @@ class PerfilView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         user = get_object_or_404(UserModel, pk=request.user.id)
         telefone = request.POST.get('telefone')
+        print(telefone)
         if len(telefone) < 11 or not telefone.isnumeric():
             if len(telefone) == 0:
                 messages.error(request, 'Sem número para verificar')
                 return render(request, self.template_name, self.contexto)
 
-            messages.error(request, 'Número de telefone não está válido.')
+            messages.error(request, 'Número de telefone não está válido')
             return render(request, self.template_name, self.contexto)
         user.telefone = telefone
         user.save()
+        messages.success(request, 'Número de telefone adicionado')
+
         return redirect('perfil')
-
-
-class APIView(LoginRequiredMixin, View):
-    template_name = 'api.html'
-
-    def setup(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return super().setup(request, *args, **kwargs)
-        
-        super().setup(request, *args, **kwargs)
-
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
-
-    def post(self, request, *args, **kwargs):
-        pass
 
 
 class ExcluirContaView(LoginRequiredMixin, View):

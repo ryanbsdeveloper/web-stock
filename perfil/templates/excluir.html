@@ -1,4 +1,14 @@
 {% extends 'base_produtos.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block head %}{% bootstrap_css %}{% endblock head %}
+
+{% block usuario %}
+<div class='menu-perfil'>
+    <a href="#modal" data-toggle="modal"><i class="fa-solid fa-gear fa-2xl"></i></a>
+</div>    
+{% endblock usuario %}
 
 {% block conteudo %}
 <div class="main2">
@@ -7,5 +17,7 @@
         <h1>Excluir</h1>
     </div>
 </div>
+
+{% bootstrap_javascript jquery='full' %}
 {% endblock conteudo %}
 

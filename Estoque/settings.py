@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     'inicio',
     'perfil',
+    'sua_api',
     'produtos',
     'API',
 ]

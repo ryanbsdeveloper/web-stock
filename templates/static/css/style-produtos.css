@@ -3,6 +3,8 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
+    text-decoration: blink;
+
 }
 
 hr {
@@ -37,9 +39,9 @@ hr {
 
 .logo h2 {
     color: #ffffff;
-    width: 100%;
-    padding-top: 18px;
-    padding-left: 20vw;
+    /* width: 100%; */
+    margin-top: 18px;
+    margin-left: 257px;
 }
 
 .search {
@@ -148,7 +150,8 @@ html {
     left: 260px;
     background: #121212;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cards {
@@ -214,7 +217,7 @@ html {
     text-align: center
 }
 
-@media (max-width:1115px) {
+@media (max-width:1245px) {
     .sidebar {
         width: 60px;
     }
@@ -223,6 +226,17 @@ html {
         width: 100%;
         left: 60px;
     }
+    .main2 {
+        width: 100%;
+        left: 60px;
+    }
+    .container-1{
+        display: none;
+    }
+    .logo h2{
+        margin-left: 60px;
+    }
+
 }
 
 @media (max-width:880px) {
@@ -782,55 +796,6 @@ i.fa-solid.fa-cart-plus {
     display: flex;
 }
 
-
-.dados-pessoais{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.dados-pessoais input{
-    border: 0;
-    width: 300px;
-    text-align: center;
-    border-bottom: 2px solid #152deb;
-    background-color: #2a2a2a;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    padding: 12px 5px 0px 5px;
-    color: whitesmoke;
-    font-size: 17px;
-    font-weight: bold;
-}
-
-.dados-pessoais .leitura{
-    border: 0;
-    border-bottom: 2px solid #ffffff;
-    background-color: #2a2a2a00;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    padding: 12px 5px 0px 5px;
-    color: rgb(97, 97, 97);
-    font-size: 17px;
-    font-weight: bold;
-    width: 400px;
-    text-align: center;
-}
-
-
-.dados-pessoais label{
-    color: #ffffff;
-    float: left;
-    font-weight: bold;
-    display: contents;
-
-}
-
-.campo-input{
-    float: left;
-    margin-bottom: 65px;
-}
-
 i.fa-solid.fa-key {
     color: white;
     font-size: x-large;
@@ -846,6 +811,7 @@ i.fa-solid.fa-circle-info {
     height: 30px;
     width: 80px;
     margin-right: 10px;
+    margin-top: 10px;
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -971,29 +937,87 @@ i.fa-solid.fa-circle-info {
     transition: opacity 0.5s ease;
 }
 
+.campo-input{
+    min-width: 400px;
+    width: 51vw;
+    direction: rtl;
+    margin: 25px 50px;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+}
+
 .campo-input i{
     margin-left: 10px;
 }
+.campo-input p{
+    color: #484848;
+    margin-top: 10px;
+    float: right;
+    width: 62%;
 
-.campo-input label{
-    margin-left: 10px;
+}
+.campo-input input{
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;
+    width: 77%;
+    background: #afafaf;
+    float: right;
+    margin-left: 30px;
+    text-align: end;
+
 }
 
+.campo-input label{
+    color: white;
+    font-weight: 700;
+    width: 25%;
+    text-align: right;
+}
+
+input#telefone {
+    background: #afafaf;
+}
+
+.campo-info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 8%;
+}
+
+.campo-info p{
+    width: 59%;
+    color: #484848;
+    margin-top: 10px;
+}
+
+.campo-info h3{
+    color: gray;
+}
+
+.input-group{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+}
 /* ABA PERFIL */
 
+
 .container-1{
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 250px;
-    margin-top: 29px;
-    margin-left: 10px;
+    margin-left: 80%;
+    position: fixed;
+    width: auto;
 }
 
 .container-2 {
-    width: 100%;
-    min-width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
 }
 
 .container-1 button {
@@ -1003,11 +1027,64 @@ i.fa-solid.fa-circle-info {
     font-weight: 600;
     background: transparent;
     color: #ffffff;
-    border-left: 10px solid #5335f9;
+    border-right: 10px solid #5335f9;
+    margin: 10px;
+    width: 160px;
 }
 .container-1 button:hover {
     background: transparent;
     color: #ffffff;
-    border-left: 10px solid #ffffff;
+    border-right: 10px solid #ffffff;
     cursor: pointer;
+}
+
+.obs {
+    text-align: center;
+    max-width: 400px;
+}
+
+.obs h3 {
+    color: #5335f9;
+    margin-top: 100px;
+}
+
+.obs p {
+    color: rgb(70, 70, 70);
+}
+
+i.fa-solid.fa-gear.fa-2xl {
+    color: #5335f9;
+    font-size: -webkit-xxx-large;
+}
+
+.menu-perfil {
+    float: right;
+}
+
+.boxlink {
+    padding: 20px;
+    text-align: center;
+    border: 3px solid;
+    margin: 10px;
+    color: grey;
+    border-radius: 10px;
+}
+.boxlink a {
+    color: black;
+    font-weight: 700;
+}
+.boxlink a:hover {
+    color: rgb(63, 66, 235);
+    text-decoration: none;
+}
+
+.modal-dialog {
+    padding: 70px;
+}
+
+.obs input{
+    text-align: center;
+    width: 340px;
+    padding: 10px;
+    margin-bottom: 30px;
 }

@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('inicio.urls')),
     path('welcome/', include('produtos.urls')),
     path('welcome/', include('perfil.urls')),
+    path('welcome/', include('sua_api.urls')),
     path('admin/', admin.site.urls),
     path('auth/', include('rest_framework.urls')),
     path('gerenciamento/api/', include(router.urls)),

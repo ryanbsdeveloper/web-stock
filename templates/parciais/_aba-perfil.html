@@ -1,6 +1,18 @@
-<div class="container-1">
-    <a href="{% url 'perfil' %}"><button type="submit" >Editar perfil</button></a>
-    <a href="{% url 'api' %}"><button type="submit" >API do servidor</button></a>
-    <a href="{% url 'senha' %}"><button type="submit" >Alterar Senha</button></a>
-    <a href="{% url 'excluir' %}"><button type="submit" >Excluir conta</button></a>
+<div class="modal fade bd-example-modal-lg show" id="modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" id="dynamic-content">
+                <h3>Mais configurações</h3>
+                <div class="boxlink">
+                    <a href="{% url 'perfil' %}">Editar perfil</a>
+                </div>
+                <div class="boxlink">
+                    <a href="{% url 'senha' %}">Alterar senha</a>
+                </div>
+                <div class="boxlink">
+                    <a href="{% url 'excluir' %}">Excluir conta</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
