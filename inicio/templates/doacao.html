@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block titulo %}Colaboração a Web Stock{% endblock titulo %}
+
 {% block conteudo %}
 <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
 
 <div class="principal">
     <div class='titulo'>
-        <i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 2s;"></i>
+        <i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 2s;position: relative;"></i>
         <h2>Doação</h2>
     </div>
     <div class='obs'>
-        <h4>Essa doação não será para ONGs ou Instituições de caridade, é apenas um recurso que achei interessante usar.</h4>
+        <h4>A colaboração será para fins de melhoria a plataforma, como qualidade de hospedagem e APIs. </h4>
     </div>   
 
     <div class='mercado-pago'>

@@ -1,6 +1,7 @@
 {% extends 'base_produtos.html' %}
 {% load bootstrap4 %}
 {% load static %}
+{% block titulo %}Seu perfil{% endblock titulo %}
 
 {% block head %}{% bootstrap_css %}{% endblock head %}
 
@@ -17,8 +18,13 @@
     {% include 'parciais/_aba-perfil.html' %}
     <div class="container-2">
         <div class="campo-info">
-            <h3>Informações pessoais</h3>
-            <p>Sua informações pessoais informadas na plataforma, prezamos pela segurança dos seu dados. qualquer duvída entre em <a href="http://">contato</a></p>.
+            <h3>Informações do seu perfil</h3>
+            {% if not telefone %}
+                <h5 style='color:rgb(238, 38, 38)'>Seu perfil está incompleto</h5>
+            {% else %}
+                <h5>Seu perfil está completo.</h5>
+            {% endif %}
+            <p>Nossa equipe preza pela segurança dos seu dados.</p>
         </div>
         <div class="campo-input">
             <div class='input-group'>
@@ -43,7 +49,7 @@
                         <input type="text" name='telefone' placeholder='Ex: 11 91111-2222'>    
                 </div>
                 <button type="submit" class="botao-verificar" id="verificar">Salvar</button>
-                <p>Adicione seu número de telefone pra receber o contato do <strong>desenvolvedor da plataforma</strong> via SMS</p>.
+                <p class='detail-fone'>Adicione seu número de telefone pra receber o contato do <strong>desenvolvedor da plataforma</strong> via SMS</p>.
             </div>
         </form>
         {% else %}
@@ -53,9 +59,10 @@
                     <label>Telefone</label>
                     <input type="text" value={{telefone}} readonly>
                 </div>
-                <p>Seu número de telefone já foi adicionado a seu dados, não poderá ser alterado</p>.
+                <p>Seu número de telefone já foi adicionado a seu dados, você não poderá alterar</p>.
             </div>
         {% endif %}
+        <p class='rodape-perfil'>Clique na <i class="fa-solid fa-gear"></i> para Alterar a senha ou Excluir sua conta.</p>
     </div>
 </div>
 

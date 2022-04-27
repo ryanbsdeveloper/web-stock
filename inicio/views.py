@@ -1,4 +1,4 @@
-from re import template
+import email
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views.generic.base import View
@@ -10,8 +10,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import auth
 from django.contrib import messages
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
+from django.utils.html import strip_tags
+from django.template.loader import render_to_string
 import requests
+
 
 def logout_view(request):
     auth.logout(request)
@@ -21,6 +24,11 @@ def logout_view(request):
 class HomeView(TemplateView):
     template_name = 'index.html'
     
+    def setup(self, request, *args, **kwargs) -> None:
+        auth.logout(request)
+
+        return super().setup(request, *args, **kwargs)
+
 
 class SingUpView(View):
     template_name = 'cadastrar.html'
@@ -66,16 +74,12 @@ class SingUpView(View):
                 # token
                 t = Token.objects.get_or_create(user=request.user)[0]
 
-                # enviando email
-                send_mail(
-                    'Verificação rbs',
-                    f'''
-                    A equipe RBS agradece sua inscrição :) 
-                    Token de verificação: {t}
-                    *obs:Esse Token é para acesso externo do servidor.''', 
-                    f'{settings.EMAIL_HOST_USER}',
-                    [f'{self.email}'], fail_silently=False)
-                
+                #enviar email
+                html = render_to_string('email.html', {'token': t, 'nome': request.user})
+                msg = strip_tags(html)
+                email = EmailMultiAlternatives('Verificação WEB Stock', msg, settings.EMAIL_HOST_USER, [f'{self.email}'])
+                email.attach_alternative(html, 'text/html')
+                email.send()
 
                 return redirect('auth')
             else:
@@ -115,14 +119,12 @@ class SingInView(View):
                 auth.login(request, user_valida)
                 t = Token.objects.get_or_create(user=request.user)[0]
                 if not token_valida_do_usuario:
-                    send_mail(
-                        'Verificação rbs',
-                        f'''
-                        A equipe RBS agradece sua inscrição :) 
-                        Token de verificação: {t}
-                        *obs:Esse Token é para acesso externo do servidor.''', 
-                        f'{settings.EMAIL_HOST_USER}',
-                        [f'{email}'], fail_silently=False)
+                    #enviar email
+                    html = render_to_string('email.html', {'token': t, 'nome': request.user})
+                    msg = strip_tags(html)
+                    email = EmailMultiAlternatives('Verificação WEB Stock', msg, settings.EMAIL_HOST_USER, [f'{email}'])
+                    email.attach_alternative(html, 'text/html')
+                    email.send()
 
                     auth.login(request, user_valida)
                     return redirect('auth')
@@ -172,3 +174,7 @@ class AuthView(LoginRequiredMixin, View):
 
 class DoaçãoView(TemplateView):
     template_name = 'doacao.html'
+
+
+class SobreView(TemplateView):
+    template_name = 'doc.html'

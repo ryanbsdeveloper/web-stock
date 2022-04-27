@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-inicio.css' %}" />
+
+    <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script>
+
+    <title>Bem-vindo a Web Stock</title>
+    <input type="checkbox" id="bt_menu">
+<label for="bt_menu">&#9776;</label>
+
+<nav class="menu">
+	<ul>
+    	<li><a class='home'>404</a></li>
+        {% if request.user.is_authenticated %}
+        <li><i style='margin: 10px;font-size: 25px;color: #36ff36;' class="fa-solid fa-power-off"></i><a href="{% url 'dashboard' %}">Entrar</a></li>
+        {% else %}
+        <li><a href="{% url 'entrar' %}"><i class="fa-regular fa-user"></i>Minha conta</a></li>
+        <li><a href="{% url 'cadastrar' %}" class='btn-cadastro'>Comece agora</a></li>
+        {% endif %}
+    </ul>
+    <div class='icon-top'>
+        <img src="{% static 'img/logo.png' %} " height="32px" />
+    </div>
+</nav>
+</head>
+<body>
+    <div id="box-404">
+        <img src="{% static 'img/logo.png' %} " height="150px" />
+        <h2>Oops, Essa pagina não foi encontrada :(</h2>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'dash' %}"><button>Voltar ao início</button></a>
+        {% else %}
+            <a href="{% url 'home' %}"><button>Voltar ao início</button></a>
+        {% endif %}
+    </div>
+</body>
+</html>

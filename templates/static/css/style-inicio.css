@@ -3,11 +3,34 @@
     list-style-type: none;
 }
 
+footer{
+  margin-top: 30px;
+  text-align: center;
+}
+footer a{
+  color: #7b4dd6;
+}
+footer p{
+  color: white;
+  font-weight: 600;
+}
+i.fa-inverse.fa-solid.fa-heart {
+  color: #ff4747;
+  font-size: 30px;
+  margin: 28px 14px;
+}
+i.fa-solid.fa-bookmark {
+  color: #e3e3e3;
+}
+
+
 body {
+    margin:10px;
     color: white;
     font-family: 'Roboto', sans-serif;
-    background:hsl(0, 0%, 7%);
-}
+    background: linear-gradient(90deg, black, #3d3d3d);
+    background-size: 100%;
+  }
 h2{
     text-align: center;
 }
@@ -101,7 +124,6 @@ li{
     font-size: 20px;
     font-weight: 700;
     font-family: monospace;
-    letter-spacing: .5rem;
 }
 
 
@@ -176,10 +198,6 @@ div p input{
   padding:0;
 }
 
-body{
-  margin:10px;
-}
-
 a{
   text-decoration: none;
   color: white
@@ -201,9 +219,10 @@ a.links{
 }
 .fa-solid , .fas{
   position: absolute;
-  margin: 20px;
+  margin: 25px 10px;
   font-size: 50px;
   color: darkgrey;
+  z-index: 99999;
 
 }
 
@@ -313,7 +332,7 @@ input[type="submit"]:hover, button:hover{
     position: relative;
     top: 0px;
     padding: 18px 6% 6% 6%;
-    margin: 15px 10%;
+    margin: 15px 5%;
     background: rgb(18 18 18);
     border: 2px solid rgba(147, 184, 189,0.8);
     -webkit-box-shadow: 5px;
@@ -474,6 +493,9 @@ label.error{
   left: initial;
   right: -1.25em;
 }
+.container{
+  display: flex;
+}
 
 .criar-conta{
   width: 50%;
@@ -608,10 +630,7 @@ label[for='bt_menu']{
   justify-content: center;
 }
 
-i.fa-solid.fa-heart.fa-beat {
-  position: static;
-  color: #d53d3d;
-}
+
 
 .principal{
   text-align: center;
@@ -656,4 +675,88 @@ p {
   box-shadow: 1px 3px 10px #069;
   transition: all .3s ;
   cursor: pointer;
+}
+
+.list h5{
+  background-image: url(//www.marketdatacloud.com.br/wp-content/themes/marketdatacloud/./assets/images/checkmark.svg);
+  background-size: 32px;
+  background-repeat: no-repeat;
+  background-position-y: 0;
+  padding: 5px 0 4px 40px;
+  margin: 0px 0px 34px 0px;
+  font-size: 19px;
+  font-weight: 600;
+}
+.doc h2 {
+  font-size: 30px;
+  font-family: system-ui;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.doc{
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.doc p {
+  color: #505050;
+  font-weight: 600;
+
+}
+
+.p-api{
+  width: 78%;
+  margin: auto;
+  color: #505050;
+  font-weight: 600;
+}
+.nossa-api{
+  margin-top: 30px;
+}
+.nossa-api p {
+  margin: 0;
+  width: 86%;
+  margin: auto;
+}
+.nossa-api a {
+  color: #1616c3;
+}
+
+i.fa-regular.fa-user {
+  margin-right: 5px;
+}
+
+a.btn-cadastro {
+  background: #9563f9;
+}
+.menu a {
+  border-radius: 5px;
+}
+
+.home {
+  color:#9563f9
+}
+
+a.home:hover {
+  background: transparent;
+  color: #9563f9;
+}
+
+#box-404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: inherit;
+}
+
+#box-404 a {
+  width: 400px;
+}
+
+#box-404 button{
+  margin-top: 100px;
 }

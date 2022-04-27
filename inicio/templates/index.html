@@ -6,21 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-inicio.css' %}" />
+
     <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script>
 
-    <title>Document</title>
+    <title>Bem-vindo a Web Stock</title>
     <input type="checkbox" id="bt_menu">
 <label for="bt_menu">&#9776;</label>
 
 <nav class="menu">
 	<ul>
-    	<li><a href="#" style='color:#9563f9'>Sobre </a></li>
+    	<li><a class='home'>Home</a></li>
         {% if request.user.is_authenticated %}
         <li><i style='margin: 10px;font-size: 25px;color: #36ff36;' class="fa-solid fa-power-off"></i><a href="{% url 'dashboard' %}">Entrar</a></li>
         {% else %}
-        <li><a href="{% url 'entrar' %}">Entrar</a></li>
-        <li><a href="{% url 'cadastrar' %}">Cadastrar</a></li>
+        <li><a href="{% url 'entrar' %}"><i class="fa-regular fa-user"></i>Minha conta</a></li>
+        <li><a href="{% url 'cadastrar' %}" class='btn-cadastro'>Comece agora</a></li>
         {% endif %}
     </ul>
     <div class='icon-top'>
@@ -42,11 +44,19 @@
         <h1 id="titulo">Gerencie seu Estoque<br/>Via Web<br/> <b id="texto-dentro">e domine o mundo!</b></h1>
         
         <p class="texto-p">Todos os recursos para gerenciar seu estoque.</p>
-        <p id="ultimo-texto"><b>Gerencie pelo nosso servidor ou consuma a API REST do seu estoque. </b></p>
+        <p id="ultimo-texto"><b>Gerencie pela nossa plataforma ou consuma a API REST do seu estoque. </b></p>
 
-        <a href="{% url 'doação' %}"><input type="button" value='Doação' id="botaoApiAzul"><i class="fa-solid fa-hand-holding-dollar"></i></a>
- 
+        <a href="{% url 'doc' %}"><input type="button" value='Documentação' id="botaoApiAzul"></a>
+        <a href="{% url 'doação' %}">
+            <span class="fa-layers fa-fw" style="background:MistyRose">
+                <i class="fa-solid fa-bookmark"></i>
+                <i class="fa-inverse fa-solid fa-heart" data-fa-transform="shrink-10 up-2"></i>
+            </span>
+        </a>
     </div>
 
 </body>
+<footer>
+    <p>Copyright © 2022 | Desenvolvido por <a href='https://github.com/ryanbsdeveloper' target="_blank">ryanbs</a></p>
+</footer>
 </html>

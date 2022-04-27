@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <script type="text/javascript" src="{% static 'js/javascript.js' %}" defer></script>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,8 +11,9 @@
 
     <!--Emojis-->
     <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script>
-    
     {% block head %}{% endblock head %}
+    
+    <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/style-produtos.css' %}">
     <title>{% block titulo %}{% endblock titulo %}</title>
 </head>

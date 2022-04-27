@@ -1,32 +1,35 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Language" content="pt-br">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Language" content="pt-br">
 
-    <!--emojis-->
-    <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script> 
+        <!--emojis-->
+        <script src="https://kit.fontawesome.com/ca7e7e3963.js" crossorigin="anonymous"></script> 
 
-    <!--recaptcha-->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+        <!--recaptcha-->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js" integrity="sha256-xLhce0FUawd11QSwrvXSwST0oHhOolNoH9cUXAcsIAg=" crossorigin="anonymous"></script>
-    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js" integrity="sha256-xLhce0FUawd11QSwrvXSwST0oHhOolNoH9cUXAcsIAg=" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style-inicio.css' %}" />
+        <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style-inicio.css' %}" />
+        <title>{% block titulo %}{% endblock titulo %}</title>
+    </head>
+    <body>
 
-    <title>{% block titulo %}{% endblock titulo %}</title>
-</head>
-<body>
+        {% block conteudo %}{% endblock conteudo %}
 
-    {% block conteudo %}{% endblock conteudo %}
-
-</body>
+    </body>
+    <footer>
+        <p>Copyright © 2022 | Desenvolvido por <a href='https://github.com/ryanbsdeveloper' target="_blank">ryanbs</a></p>
+    </footer>
 </html>

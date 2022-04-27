@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.contrib.auth.models import User
 from inicio.models import UserModel
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
@@ -99,4 +100,14 @@ class ExcluirContaView(LoginRequiredMixin, View):
         return render(request,  self.template_name)
 
     def post(self, request, *args, **kwargs):
-        pass
+        senha = request.POST.get('senha')
+        usuario = UserModel.objects.get(usuario=request.user)
+        usuario_django = User.objects.get(username=request.user)
+
+        if senha != usuario.senha:
+            messages.error(request, 'Senha incorreta, tente novamente.')
+            return redirect('excluir')
+
+        usuario_django.delete()
+        usuario.delete()
+        return redirect('home')

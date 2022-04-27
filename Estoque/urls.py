@@ -18,14 +18,19 @@ from django.urls import path, include
 from API.urls import router
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import notfound404
+
+handler404 = notfound404
 
 urlpatterns = [
     path('', include('inicio.urls')),
     path('welcome/', include('produtos.urls')),
     path('welcome/', include('perfil.urls')),
     path('welcome/', include('sua_api.urls')),
-    path('admin/', admin.site.urls),
+    path('ryandev/', admin.site.urls),
     path('auth/', include('rest_framework.urls')),
     path('gerenciamento/api/', include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
 
