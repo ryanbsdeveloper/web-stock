@@ -1,1 +1,1 @@
-web: gunicorn Estoque.wsgi --log-file -
+web: gunicorn Estoque.wsgi 
