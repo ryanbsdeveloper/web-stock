@@ -217,6 +217,20 @@ html {
     text-align: center
 }
 
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 500px;
+    margin: 1em auto;
+}
+}
+@media (max-width: 576px){
+    .modal-dialog {
+        margin-top: 66px;
+        padding: 0px 70px
+    }
+}
+
+
 @media (max-width:1245px) {
     .sidebar {
         width: 60px;
@@ -1085,7 +1099,7 @@ i.fa-solid.fa-gear.fa-2xl {
 }
 
 .modal-dialog {
-    padding: 70px;
+    padding: 0px 70px;
 }
 
 .obs input{
