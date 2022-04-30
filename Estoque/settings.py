@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import django_heroku
 from pathlib import Path
 from django.contrib.messages import constants
 
@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'API',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -137,6 +136,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [Path.joinpath(BASE_DIR, 'templates/static')]
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'templates/collectstatic')
+STATICFILES_STORAGE = 'django.whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -218,3 +219,4 @@ X_FRAME_OPTIONS ='DENY'
 
 SECURE_SSL_REDIRECT = True
 
+django_heroku.settings(locals())
