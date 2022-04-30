@@ -218,5 +218,3 @@ X_FRAME_OPTIONS ='DENY'
 
 SECURE_SSL_REDIRECT = False
 
-import django_heroku
-django_heroku.settings(locals())
