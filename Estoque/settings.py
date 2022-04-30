@@ -134,7 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [Path.joinpath(BASE_DIR, 'templates/static')]
+STATICFILES_DIRS = (Path.joinpath(BASE_DIR, 'templates/static'),)
+STATIC_TMP = Path.joinpath(BASE_DIR, 'static')
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'templates/collectstatic')
 STATICFILES_STORAGE = 'django.whitenoise.storage.CompressedManifestStaticFilesStorage'
 
