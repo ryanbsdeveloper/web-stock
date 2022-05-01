@@ -135,8 +135,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (Path.joinpath(BASE_DIR, 'templates/static'),)
-# STATIC_TMP = Path.joinpath(BASE_DIR, 'static')
-STATICFILES_STORAGE = 'django.whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = Path.joinpath(BASE_DIR, 'templates/staticfiles')
 
 
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
@@ -217,6 +216,4 @@ CSRF_COOKIE_HTTPONLY = True
 SECURE_HSTS_PRELOAD = True
 X_FRAME_OPTIONS ='DENY'
 
-SECURE_SSL_REDIRECT = True
-
-django_heroku.settings(locals())
+SECURE_SSL_REDIRECT = False
