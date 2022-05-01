@@ -2,9 +2,6 @@
     text-decoration: none;
     list-style-type: none;
 }
-html{
-  background-color: #222;
-}
 
 footer{
   margin-top: 30px;
@@ -26,14 +23,28 @@ i.fa-solid.fa-bookmark {
   color: #e3e3e3;
 }
 
-
 body {
     margin:10px;
     color: white;
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(90deg, black, #2c2c2c);
     background-size: 100%;
-  }
+}
+
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: orange;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: blue;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid orange;  /* creates padding around scroll thumb */
+}
+
 h2{
     text-align: center;
 }

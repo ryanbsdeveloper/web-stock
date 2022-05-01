@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$8*$y4%k5ozcsotw87n=dd)^epx@$v9eg@8z^&hdfov=ibzo=&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -90,14 +90,30 @@ WSGI_APPLICATION = 'Estoque.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'CONN_MAX_AGE': 500,
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'CONN_MAX_AGE': 500,
+#     }
+# }
 
+DATABASES = {
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'webstock',
+
+        'USER': 'postgres',
+
+        'PASSWORD': '842684265santos',
+
+        'HOST': 'localhost',
+    }
+
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -192,14 +208,6 @@ EMAIL_HOST_PASSWORD = '842684265ry'
 
 
 
-# AUTHENTICATION_BACKENDS = [
-#     'social_core.backends.facebook.FacebookOAuth2',
-#     'django.contrib.auth.backends.ModelBackend',
-# ]
-
-# SOCIAL_AUTH_FACEBOOK_KEY = '667491794584304'
-# SOCIAL_AUTH_FACEBOOK_SECRET = '667491794584304'
-
 #  LOGIN REQUIRED
 LOGIN_URL = 'entrar'
 
@@ -216,4 +224,4 @@ CSRF_COOKIE_HTTPONLY = True
 SECURE_HSTS_PRELOAD = True
 X_FRAME_OPTIONS ='DENY'
 
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
