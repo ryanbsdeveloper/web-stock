@@ -1,0 +1,9 @@
+{% load static %}
+{% if messages %}
+    <br>
+    {% for message in messages %}
+        <div class={{message.tags}}>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}

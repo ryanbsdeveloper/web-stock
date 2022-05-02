@@ -1,0 +1,109 @@
+{% extends 'base_produtos.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block titulo %}Seu Estoque{% endblock titulo %}
+
+{% block head %}{% bootstrap_css %}
+{% endblock head %}
+
+{% block usuario %}
+
+<form method="get" >
+    <div class="caixadepesquisa">
+        <input class="textodepesquisa" type="text" placeholder="Buscar produto" name='busca'>
+        <button type="submit"><i class="fas fa-search" style='font-size: 80%;'></i></button>
+    </div>
+</form>
+
+<div class='add-produto'>
+    <a href="#modal" data-toggle="modal"><button type="submit"><i class="fa-solid fa-cart-plus" style='font-size: 100%;'></i></button></a>
+</div>
+{% endblock usuario %}
+
+{% block conteudo %}
+<div class="main">
+
+
+<div class="modal fade bd-example-modal-lg show" id="modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="{% static 'img/logo.png' %}" style='margin: -12px 43%;width: 55px;'>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="dynamic-content">
+                <h3>Adicione produtos</h3>
+                <form method="post" class='submit-form' enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class='label-float'>
+                        <div class="textbox">
+                            <label>Nome</label>
+                            {{form.nome_produto}}
+                        </div>
+                        <div class="textbox">
+                            <label>Imagem</label>
+                            {{form.imagem_produto}}
+                        </div>
+                        <div class="textbox">
+                            <label>Quantidade</label>
+                            {{form.quantidade}}
+                        </div>
+                        <div class="textbox">
+                            <label>Validade</label>
+                            {{form.validade}}
+                        </div>
+                        <div class="textbox">
+                            <label>Marca</label>
+                            {{form.marca}}
+                        </div>
+                        <div class="textbox">
+                            <label>Preço</label>
+                            {{form.preco}}
+                        </div>    
+                    </div>
+                    {% include 'parciais/_messages.html' %}
+                    <hr>
+                    <button type="submit" class="btn">Adicionar Produto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='cartas-produtos'>
+    {% if produtos %}
+        {% for produto in produtos %}
+            <main>
+                <a href="{% url 'deletar' produto.id %}"><i class="fa-solid fa-trash-can"></a></i>
+                </i>
+                <img src="{{produto.imagem_produto.url}}">
+            <section>
+                <h1>{{produto.nome_produto}}</h1>
+                <div class="informations">
+                    <div class="music-price">
+                        <div class="price">
+                            <strong>Em estoque: <span>{{produto.quantidade}}</span></strong>
+                            <strong>Preço: <span>${{produto.preco}}</span></strong>
+                            <strong>Marca: <span>{{produto.marca}}</span></strong>
+                            {% if produto.validade %}
+                                <strong>Validade: <span>{{produto.validade}}</span></strong>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <a href="{% url 'editar' produto.id %}" id="show-modal"><button type="submit"><i class="fa-solid fa-pen-to-square"></i> EDITAR</button></a>
+            </section>
+            </main>
+        {% endfor %}
+    {% else %}
+        <div style='text-align: center;'>
+            <img src="{% static 'img/semestoque.png' %}">
+        </div>
+    {% endif %}
+</div>
+</div>
+{% bootstrap_javascript jquery='full' %}
+{% endblock conteudo %}

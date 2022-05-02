@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Entrar{% endblock titulo %}
+
+{% block conteudo %}
+<a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
+
+<div class="container" >
+    <div class="content">    
+          <!--FORMULÁRIO DE LOGIN-->
+        <img src="{% static 'img/logo.png' %}"style='width:110px;height:auto'>
+        <div id="login">
+            <form method="POST" id='MyForm'>
+                {% csrf_token %}
+                <h2>Faça o login</h2>
+                <div class="label-float"> 
+                    {{form.email}}
+                    <label>{{form.email.label}}</label>
+                    {{l.errors}}
+                </div>
+                <div class="label-float">
+                    {{form.senha}}
+                    <label>{{form.senha.label}}</label>
+                    {{l.errors}}
+                </div>
+
+                {% include 'parciais/_messages.html' %}
+
+                <p> 
+                    <button type="submit" id='btnSalvar'><img src="{% static 'img/load.gif' %}" style='width:27px;margin-right:5px' id='load'> Entrar </button>
+                </p>
+
+                <p style='text-align: center;color:gray'>ou</p>
+                <p class="criar-conta">
+                    <a href="{% url 'cadastrar' %}">Cadastre-se</a>
+                </p>
+            </form>
+            <script src="{% static 'js/jquery.js' %}"></script>
+            <script>
+                document.getElementById('load').style.display = 'none';
+
+                $( document ).ready(function() {
+                    $("label.error").remove();
+
+                    $('#btnSalvar').on('click', function (e) {
+
+                        var button = $('#btnSalvar');
+
+                        button.prop('disabled', true);
+
+                        var valid = $("#MyForm").valid();
+
+                        if (!valid) {
+                            $("label.error").remove();
+                            e.preventDefault();
+                            button.prop('disabled', false);
+
+                        } else {
+                            document.getElementById('load').style.display = 'block';
+                            $('#MyForm').submit();
+                        }
+                    });
+                });    
+            </script>
+        </div>  
+    </div>
+</div>
+
+<script src="{% static 'js/js.js' %}"></script>
+
+
+{% endblock conteudo %}

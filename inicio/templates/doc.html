@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Documentação Web Stock{% endblock titulo %}
+
+{% block conteudo %}
+<a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
+
+<div class="doc">
+    <div class="api-rest">
+        <h2>
+            Plataforma <img src="{% static 'img/logo.png' %} " height="32px" />
+        </h2>
+        <div class='p-api'>
+            <p>Sua conta na plataforma será configurada com sua API, assim podendo fazer todo o gerenciamento do seu estoque com alguns recursos a mais pela sua conta, e ficando por dentro de atualizações posteriores!</p><br>
+            <p>Podendo acessar também ao criar sua conta, o servidor do Django REST para uso somente da sua API.</p>
+        </div>
+    </div>
+
+    <div class='nossa-api'>
+        <h2>Use nossa API</h2>
+        <p>Nossa API foi criada para todos os tipos de aplicações. Gerenciar seu estoque com nossa api elevará performance e escabilidade a sua aplicação.</p> <br>
+        <p>Adicione o TOKEN recebido ao se <a href={% url 'cadastrar' %}>cadastrar</a> a suas credenciais de requisições para a autorização do uso da API REST.</p>
+    </div>
+  
+    <div class="list">
+        <h2>Quais as vantagens de utilizar a nossa API</h2>
+        <p>Tem alguma dúvida sobre a nossa API Rest? Confira abaixo as vantagens da nossa a plataforma, funcionalidades e integrações.</p>
+        <br>
+        <h5>Ideal para sites, aplicativos</h5>
+        <h5>Fácil e Rápida integração</h5>
+        <h5>O sinal REST é do tipo REQUEST/RESPONSE</h5>
+        <h5>Integrações de imagens</h5>
+        <h5>Requisições ilimitadas</h5>
+    </div>    
+</div>
+
+{% endblock conteudo %}
+

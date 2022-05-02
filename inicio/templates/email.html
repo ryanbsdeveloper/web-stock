@@ -1,0 +1,56 @@
+
+<html>
+    <head>
+        <style>
+            label{
+                color:grey;
+                font-size: 20px;
+                font-family:monospace;
+            }
+            h2{
+                font-weight: 700;
+                font-family: sans-serif;
+                color:white;
+                margin:25px 0px;
+            }
+            *{
+                background-color:#121212;
+                text-align:center;
+            }
+            body{
+                padding: 50px;
+            }
+            p{
+                font-size:18px;
+                font-family: sans-serif;
+                border-bottom: 2px solid blue;
+                padding: 15px;
+                border-radius:10px;
+                background-color:grey;
+                margin:0;
+                text-align:center;
+                font-weight: 700;
+                margin: 50px;
+    
+            }
+            h5{
+                font-family:helvetica;
+                color:white;
+            }
+    
+        </style>    
+    </head>
+    
+    <body>
+        <h2>Olá, {{nome}}. Obrigado pela inscrição!💜</h2>
+        
+        <label>Abaixo esse é seu token de verificação e de acesso a API.</label>
+    
+        <p>{{token}}</p> 
+    
+        <hr>
+    
+        <h5>Este e-mail foi enviado a você para informar sobre a inscrição da sua Conta nos nosso serviços.</h5>
+    
+    </body>
+</html>

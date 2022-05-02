@@ -1,0 +1,50 @@
+{% extends 'base_produtos.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block titulo %}Seu perfil - Excluir conta{% endblock titulo %}
+
+{% block head %}{% bootstrap_css %}{% endblock head %}
+
+{% block usuario %}
+<div class='menu-perfil'>
+    <a href="#modal" data-toggle="modal"><i class="fa-solid fa-gear fa-2xl"></i></a>
+</div>    
+{% endblock usuario %}
+
+{% block conteudo %}
+<div class="main2">
+    {% include 'parciais/_aba-perfil.html' %}
+    <div class="modal fade bd-example-modal-lg show" id="excluir" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="dynamic-content">
+                    <h3 style='font-size: 20px;
+                    color: black;'>introduza sua senha para confirmar</h3>
+                    <form method="post">{% csrf_token %}
+                        <div class="confirmar-exclusao">
+                            <input type="text" name='senha' placeholder='Sua Senha'>
+                            <button type="submit">Confirmar</button>
+                        </div>                        
+                    </form>
+                    <p style='color:grey;text-align: center;
+                    font-weight: 600;'>Você será redirecionado a pagína inicial</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-2">
+        {% include 'parciais/_messages.html' %}
+
+        <h2 style='color: white;font-weight: 600;'>Olá {{request.user}}, Deseja excluir sua conta?</h2>
+        <p style='font-size: 20px;color: white;'>Ao excluir sua conta você apagará todos seu dados junto a API</p>
+        <div class="botao">
+            <h4>Deseja Continuar?</h4>
+            <a href="#excluir" data-toggle="modal"><button>Excluir</button></a>
+        </div>
+    </div>
+</div>
+
+{% bootstrap_javascript jquery='full' %}
+{% endblock conteudo %}
+

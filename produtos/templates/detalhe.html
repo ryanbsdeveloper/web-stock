@@ -1,0 +1,35 @@
+{% extends 'base_produtos.html' %}
+
+{% block usuario %}
+<h1 class='edit-name'>{{produto.nome_produto}}</h1>
+{% endblock usuario %}
+
+{% block titulo %}Seu Estoque - Detalhe{% endblock titulo %}
+
+{% block conteudo %}
+<div class="main">
+    <div class='edit'>
+        <img src="{{produto.imagem_produto.url}}" class='edit-img'>
+        <form method="post">{% csrf_token %}
+        <div class='edit-form'>
+            <label>Nome do produto</label>
+            {{form.nome_produto}}
+
+            <label>Quantidade em estoque</label>
+            {{form.quantidade}}
+
+            <label>Marca</label>
+            {{form.marca}}
+
+            <label>Preço unitário <i class="fa-solid fa-dollar-sign"></i></label>
+            {{form.preco}}
+            
+            <div class="btn-iterativo">
+                <button type='submit' class="btn">Confirmar edição</button>
+        </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock conteudo %}

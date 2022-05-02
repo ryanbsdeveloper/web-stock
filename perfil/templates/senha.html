@@ -1,0 +1,47 @@
+{% extends 'base_produtos.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block head %}{% bootstrap_css %}{% endblock head %}
+{% block usuario %}
+{% block titulo %}Seu perfil - alterar senha{% endblock titulo %}
+
+<div class='menu-perfil'>
+    <a href="#modal" data-toggle="modal"><i class="fa-solid fa-gear fa-2xl"></i></a>
+</div>
+
+{% endblock usuario %}
+
+{% block conteudo %}
+<div class="main2">
+
+    {% include 'parciais/_aba-perfil.html' %}
+    <div class="container-2">
+
+        <div class='obs'>
+            <h3>Observação</h3>
+            <p>Ao alterar sua senha de login, alterará também a senha de acesso ao servidor Django REST.</p>    
+        </div>
+
+        <h2 style='text-align: center;
+        color: #757575;
+        margin-top: 20px;'>
+        Redefina sua senha </h2>
+
+
+    <form method="post">{% csrf_token %}
+        <div class='edit-form'>
+            <input type="text" name="senha1" placeholder='Senha'>
+            <input type="text" name="senha2" placeholder='Confirme a senha'>
+            <div class='verifica'>
+                <button type="submit" class='botao-verificar' id='verificar'>Salvar</button>
+                {% include 'parciais/_messages.html' %}
+            </div>
+        </div>
+    </form>
+
+    </div>
+</div>
+
+{% bootstrap_javascript jquery='full' %}
+{% endblock conteudo %}

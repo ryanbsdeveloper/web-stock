@@ -1,0 +1,49 @@
+{% extends 'base_produtos.html' %}
+
+{% block titulo %}Início{% endblock titulo %}
+{% block usuario %}
+    {% if messages %}
+        {% include 'parciais/_messages.html' %}
+    {% else %}
+        <strong style='color: #5335f9;'> Olá,</strong> {{request.user}}
+    {% endif %}        
+{% endblock usuario %}
+
+{% block conteudo %}
+<div class="main">
+    <input type="hidden" id='em-estoque' value={{total_estoque}}>
+    <input type="hidden" id='media-valores' value={{media_valor}}>
+    <div class="cards">
+        <div class="card">
+            <div class="card-content">
+                <div class="number">R$ {{valor_total}}</div>
+                <div class="card-name">Valor Total do estoque</div>
+            </div>
+            <div class="icon-box">
+                <div id='tooltip2'>
+                    <span id='tooltipText2'>Soma total dos valores dos produtos em estoque.</span>
+                    <i class="fa-solid fa-sack-dollar"></i>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="number">{{produtos|length}}</div>
+                <div class="card-name">Total de produtos</div>
+            </div>
+            <div class="icon-box">
+                <div id='tooltip2'>
+                    <span id='tooltipText2' style='left: -180%;'>Total de Produtos unitarios no estoque. </span>
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="charts">
+        <div class="chart doughnut-chart">
+            <h2>Produtos</h2>
+            <canvas id="doughnut"></canvas>
+        </div>
+    </div>
+</div>
+{% endblock conteudo %}
