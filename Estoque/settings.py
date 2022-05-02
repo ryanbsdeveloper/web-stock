@@ -109,7 +109,6 @@ DATABASES = {
 }
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -156,7 +155,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#reCAPTCHA
+# reCAPTCHA
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LdHvSgfAAAAAFVqaagJdgDhN7NSZcvFYgQMSHdh'
 GOOGLE_RECAPTCHA_SITE_KEY = '6LdHvSgfAAAAAD97R6RQyM-R2NB3qFBObBwsLXYf'
 
@@ -169,7 +168,6 @@ MESSAGE_TAGS = {
 }
 
 
-
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
@@ -180,8 +178,8 @@ REST_FRAMEWORK = {
 
     ],
     'DEFAULT_THROTTLE_CLASSES': [
-    'rest_framework.throttling.AnonRateThrottle',
-    'rest_framework.throttling.UserRateThrottle'
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
     ],
     'DEFAULT_THROTTLE_RATES': {
         'anon': '5/minute',
@@ -205,7 +203,7 @@ EMAIL_HOST_PASSWORD = '842684265ry'
 LOGIN_URL = 'entrar'
 
 
-#CONF HOSPEDAGEM
+# CONF HOSPEDAGEM
 
 SECURE_HSTS_SECONDS = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -215,6 +213,6 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 SECURE_HSTS_PRELOAD = True
-X_FRAME_OPTIONS ='DENY'
+X_FRAME_OPTIONS = 'DENY'
 
 SECURE_SSL_REDIRECT = False
