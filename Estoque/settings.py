@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$8*$y4%k5ozcsotw87n=dd)^epx@$v9eg@8z^&hdfov=ibzo=&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.webstock.kinghost.net', 'webstock.web10f74.kinghost.net']
 
 # Application definition
 
@@ -215,4 +215,4 @@ CSRF_COOKIE_HTTPONLY = True
 SECURE_HSTS_PRELOAD = True
 X_FRAME_OPTIONS = 'DENY'
 
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
