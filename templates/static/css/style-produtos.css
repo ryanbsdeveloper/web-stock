@@ -7,6 +7,16 @@
 
 }
 
+::-webkit-scrollbar {
+    background-color: #222222;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1b1b1b;
+    padding: 5px;
+    -webkit-border-radius: 3px;
+}
+
 hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -226,14 +236,17 @@ html {
         width: 100%;
         left: 60px;
     }
+
     .main2 {
         width: 100%;
         left: 60px;
     }
-    .container-1{
+
+    .container-1 {
         display: none;
     }
-    .logo h2{
+
+    .logo h2 {
         margin-left: 60px;
     }
 
@@ -519,18 +532,25 @@ main .informations img {
 
 /* Mudando o Modal do Bootstrap */
 
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
-    width: 0%; 
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+    width: 0%;
     padding-right: 0px;
-    padding-left: 0px; 
-    margin-right: 0px; 
-    margin-left: 0px; 
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
 }
+
 .modal-backdrop.show {
     opacity: .5;
     width: 100%;
     height: 100%;
 }
+
 .modal-body {
     position: relative;
     -ms-flex: 1 1 auto;
@@ -579,11 +599,11 @@ main .informations img {
 
 }
 
-.label-float{
+.label-float {
     position: relative;
 }
 
-.label-float input{
+.label-float input {
     border: 0;
     border-bottom: 2px solid #82838b;
     min-width: 180px;
@@ -596,33 +616,36 @@ main .informations img {
     font-weight: bold;
 }
 
-.label-float input:focus{
+.label-float input:focus {
     border-bottom: 2px solid #3951b2;
 }
 
-.label-float input::placeholder{
-    color:transparent;
+.label-float input::placeholder {
+    color: transparent;
 }
 
-.label-float label{
+.label-float label {
     margin-bottom: 0px;
     margin-top: 5px;
     transition: all .3s ease-out;
     -webkit-transition: all .3s ease-out;
     -moz-transition: all .3s ease-out;
-    }
+}
 
-.label-float input:required:invalid + label{
+.label-float input:required:invalid+label {
     color: rgb(255, 255, 255);
-    }
-.label-float input:focus:required:invalid{
+}
+
+.label-float input:focus:required:invalid {
     border-bottom: 2px solid red;
 }
-.label-float input:required:invalid + label:before{
+
+.label-float input:required:invalid+label:before {
     content: ' ';
 }
-.label-float input:focus + label,
-.label-float input:not(:placeholder-shown) + label{
+
+.label-float input:focus+label,
+.label-float input:not(:placeholder-shown)+label {
     font-size: 13px;
     margin-top: 0;
     color: #3951b2;
@@ -777,7 +800,7 @@ i.fa-solid.fa-cart-plus {
 /* BTN DA ABA EDITAR */
 
 .btn {
-    width: 100%!important;
+    width: 100% !important;
     display: flex;
     cursor: pointer;
     background: #9563f9;
@@ -792,7 +815,7 @@ i.fa-solid.fa-cart-plus {
     border: 0;
 }
 
-.btn-iterativo{
+.btn-iterativo {
     display: flex;
 }
 
@@ -805,7 +828,7 @@ i.fa-solid.fa-circle-info {
     color: #313cbf;
 }
 
-.botao-verificar{
+.botao-verificar {
     border: 0;
     display: flex;
     height: 30px;
@@ -822,7 +845,7 @@ i.fa-solid.fa-circle-info {
     color: white;
 }
 
-.verifica input{
+.verifica input {
     font-size: 17px;
     border-bottom: 2px solid #098f00;
     height: 30px;
@@ -830,19 +853,20 @@ i.fa-solid.fa-circle-info {
     margin-left: 10px;
 }
 
-.verifica{
+.verifica {
     display: flex;
     margin-bottom: 35px;
 }
 
-.alert-danger{
+.alert-danger {
     color: rgb(238, 38, 38);
     font-weight: 600;
     background: transparent;
     margin: auto;
 }
-.alert-success{
-    color:#098f00;
+
+.alert-success {
+    color: #098f00;
     font-weight: 600;
     background: transparent;
     margin: auto;
@@ -850,7 +874,7 @@ i.fa-solid.fa-circle-info {
 
 /* TOOLTIP */
 
-#tooltip{
+#tooltip {
     position: relative;
     cursor: pointer;
     padding: 7px;
@@ -860,7 +884,7 @@ i.fa-solid.fa-circle-info {
     float: right;
 }
 
-#tooltipText{
+#tooltipText {
     position: absolute;
     left: -435%;
     margin-top: 50px;
@@ -876,7 +900,7 @@ i.fa-solid.fa-circle-info {
     font-size: 14px;
 }
 
-#tooltipText::before{
+#tooltipText::before {
     content: "";
     position: absolute;
     left: 53%;
@@ -886,7 +910,7 @@ i.fa-solid.fa-circle-info {
     border-color: #616161 #0000 #0000 #0000;
 }
 
-#tooltip:hover #tooltipText{
+#tooltip:hover #tooltipText {
     top: -130%;
     visibility: visible;
     opacity: 1;
@@ -895,7 +919,7 @@ i.fa-solid.fa-circle-info {
 
 /* TOOLTIP 2 */
 
-#tooltip2{
+#tooltip2 {
     position: relative;
     cursor: pointer;
     padding: 7px;
@@ -905,7 +929,7 @@ i.fa-solid.fa-circle-info {
     padding: 9px 0px;
 }
 
-#tooltipText2{
+#tooltipText2 {
     position: absolute;
     left: -268%;
     top: 0;
@@ -922,7 +946,7 @@ i.fa-solid.fa-circle-info {
     font-size: 14px;
 }
 
-#tooltipText2::before{
+#tooltipText2::before {
     content: "";
     position: absolute;
     left: 90%;
@@ -932,14 +956,14 @@ i.fa-solid.fa-circle-info {
     border-color: #161616 #0000 #0000 #0000;
 }
 
-#tooltip2:hover #tooltipText2{
+#tooltip2:hover #tooltipText2 {
     top: -130%;
     visibility: visible;
     opacity: 1;
     transition: opacity 0.5s ease;
 }
 
-.campo-input{
+.campo-input {
     min-width: 400px;
     width: 51vw;
     direction: rtl;
@@ -948,17 +972,19 @@ i.fa-solid.fa-circle-info {
     align-items: flex-end;
 }
 
-.campo-input i{
+.campo-input i {
     margin-left: 10px;
 }
-.campo-input p{
+
+.campo-input p {
     color: #484848;
     margin-top: 10px;
     float: right;
     width: 100%;
     text-align: center;
 }
-.campo-input input{
+
+.campo-input input {
     border: 0;
     padding: 10px;
     border-radius: 5px;
@@ -969,49 +995,50 @@ i.fa-solid.fa-circle-info {
     direction: ltr;
 }
 
-.campo-input label{
+.campo-input label {
     color: white;
     font-weight: 700;
     width: 25%;
     text-align: right;
 }
 
-.detail-fone{
-    color:rgb(20, 156, 20)
+.detail-fone {
+    color: rgb(20, 156, 20)
 }
 
 input#telefone {
     background: #afafaf;
 }
 
-.campo-info{
+.campo-info {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.campo-info p{
+.campo-info p {
     color: #808080;
     font-weight: 700;
 
 }
 
-.campo-info h3{
+.campo-info h3 {
     color: white;
 }
 
-.input-group{
+.input-group {
     display: flex;
     justify-content: flex-end;
     width: 90%;
     flex-wrap: nowrap;
     flex-direction: row-reverse;
 }
+
 /* ABA PERFIL */
 
 
-.container-1{
+.container-1 {
     margin-left: 80%;
     position: fixed;
     width: auto;
@@ -1035,6 +1062,7 @@ input#telefone {
     margin: 10px;
     width: 160px;
 }
+
 .container-1 button:hover {
     background: transparent;
     color: #ffffff;
@@ -1075,10 +1103,12 @@ i.fa-solid.fa-gear.fa-2xl {
     color: grey;
     border-radius: 10px;
 }
+
 .boxlink a {
     color: black;
     font-weight: 700;
 }
+
 .boxlink a:hover {
     color: rgb(63, 66, 235);
     text-decoration: none;
@@ -1088,7 +1118,7 @@ i.fa-solid.fa-gear.fa-2xl {
     padding: 70px;
 }
 
-.obs input{
+.obs input {
     text-align: center;
     width: 60%;
     color: black;
@@ -1098,25 +1128,26 @@ i.fa-solid.fa-gear.fa-2xl {
     margin-bottom: 30px;
 }
 
-p.title-api{
+p.title-api {
     color: white;
     font-size: 20px;
     font-weight: 600;
 }
 
-.box-api{
+.box-api {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 110%;
 }
 
-.campo-info h5{
+.campo-info h5 {
     color: #007609;
     font-weight: 600;
     margin-bottom: 2.5em;
 }
-.rodape-perfil{
+
+.rodape-perfil {
     text-align: center;
 }
 
@@ -1136,7 +1167,8 @@ p.title-api{
 .botao {
     text-align: center;
 }
-.botao h4{
+
+.botao h4 {
     color: #6e6e6e;
     font-weight: 600;
 }
@@ -1147,7 +1179,7 @@ p.title-api{
     align-items: center;
 }
 
-.confirmar-exclusao input{
+.confirmar-exclusao input {
     margin: 10px 0px;
     padding: 5px;
     color: rgb(0, 0, 0);
@@ -1156,6 +1188,7 @@ p.title-api{
     border-radius: 5px;
     width: 100%;
 }
+
 .confirmar-exclusao button {
     border: 0;
     padding: 5px;

@@ -33,7 +33,16 @@ body {
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(90deg, black, #222222);
   background-size: 100%;
-  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  background-color: #222222;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b1b1b;
+  padding: 5px;
+  -webkit-border-radius: 3px;
 }
 
 h2 {
@@ -600,7 +609,7 @@ header img {
 
 .menu a:hover {
   background-color: #f4f4f4;
-  color: #069;
+  color: rgb(67, 18, 204);
   transition: all 0.2s linear;
 }
 
