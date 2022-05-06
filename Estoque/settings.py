@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'API',
 ]
 
+
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
