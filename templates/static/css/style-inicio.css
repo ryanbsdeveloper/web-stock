@@ -369,7 +369,7 @@ button:hover {
   top: 0px;
   padding: 18px 6% 6% 6%;
   margin: 15px 5%;
-  background: rgb(18 18 18);
+  background: rgba(0, 0, 0, 0);
   border: 2px solid rgba(147, 184, 189, 0.8);
   -webkit-box-shadow: 5px;
   border-radius: 20px;

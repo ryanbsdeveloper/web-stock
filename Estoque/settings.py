@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$8*$y4%k5ozcsotw87n=dd)^epx@$v9eg@8z^&hdfov=ibzo=&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.webstock.kinghost.net', 'webstock.web10f74.kinghost.net']
+ALLOWED_HOSTS = ['www.webstock.kinghost.net', 'webstock.kinghost.net', '*']
 
 # Application definition
 
@@ -51,8 +51,6 @@ INSTALLED_APPS = [
     'API',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -60,8 +58,15 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
+]
+
+AUTHENTICATION_BACKENDS = [
+    # 'django.contrib.auth.backends.RemoteUserBackend',
+    'django.contrib.auth.backends.ModelBackend'
 ]
 
 ROOT_URLCONF = 'Estoque.urls'
@@ -215,4 +220,4 @@ CSRF_COOKIE_HTTPONLY = True
 SECURE_HSTS_PRELOAD = True
 X_FRAME_OPTIONS = 'DENY'
 
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
