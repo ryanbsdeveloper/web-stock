@@ -9,7 +9,11 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+<<<<<<< HEAD
 
+=======
+import django_heroku
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 from pathlib import Path
 from django.contrib.messages import constants
 
@@ -26,7 +30,11 @@ SECRET_KEY = 'django-insecure-$8*$y4%k5ozcsotw87n=dd)^epx@$v9eg@8z^&hdfov=ibzo=&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['www.webstock.kinghost.net', 'webstock.kinghost.net', '*']
+=======
+ALLOWED_HOSTS = ['www.webstock.kinghost.net', '*']
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 
 # Application definition
 
@@ -59,6 +67,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+<<<<<<< HEAD
     'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -68,6 +77,10 @@ MIDDLEWARE = [
 AUTHENTICATION_BACKENDS = [
     # 'django.contrib.auth.backends.RemoteUserBackend',
     'django.contrib.auth.backends.ModelBackend'
+=======
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 ]
 
 ROOT_URLCONF = 'Estoque.urls'
@@ -97,6 +110,17 @@ WSGI_APPLICATION = 'Estoque.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+<<<<<<< HEAD
+=======
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'CONN_MAX_AGE': 500,
+#     }
+# }
+
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 DATABASES = {
 
     'default': {
@@ -114,7 +138,10 @@ DATABASES = {
 
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -139,7 +166,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
+<<<<<<< HEAD
 TIME_ZONE = 'America/Sao_paulo'
+=======
+TIME_ZONE = 'America/New_York'
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 
 USE_I18N = True
 
@@ -149,9 +180,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+<<<<<<< HEAD
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [Path.joinpath(BASE_DIR, 'templates/static')]
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'templates/collectstatic')
+=======
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (Path.joinpath(BASE_DIR, 'templates/static'),)
+STATIC_ROOT = Path.joinpath(BASE_DIR, 'templates/staticfiles')
+
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -161,7 +199,11 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+<<<<<<< HEAD
 # reCAPTCHA
+=======
+#reCAPTCHA
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LdHvSgfAAAAAFVqaagJdgDhN7NSZcvFYgQMSHdh'
 GOOGLE_RECAPTCHA_SITE_KEY = '6LdHvSgfAAAAAD97R6RQyM-R2NB3qFBObBwsLXYf'
 
@@ -174,6 +216,10 @@ MESSAGE_TAGS = {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
@@ -184,8 +230,13 @@ REST_FRAMEWORK = {
 
     ],
     'DEFAULT_THROTTLE_CLASSES': [
+<<<<<<< HEAD
         'rest_framework.throttling.AnonRateThrottle',
         'rest_framework.throttling.UserRateThrottle'
+=======
+    'rest_framework.throttling.AnonRateThrottle',
+    'rest_framework.throttling.UserRateThrottle'
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
     ],
     'DEFAULT_THROTTLE_RATES': {
         'anon': '5/minute',
@@ -205,11 +256,19 @@ EMAIL_HOST_USER = 'ryanbsdeveloper@gmail.com'
 EMAIL_HOST_PASSWORD = '842684265ry'
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 #  LOGIN REQUIRED
 LOGIN_URL = 'entrar'
 
 
+<<<<<<< HEAD
 # CONF HOSPEDAGEM
+=======
+#CONF HOSPEDAGEM
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 
 SECURE_HSTS_SECONDS = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -219,6 +278,10 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 SECURE_HSTS_PRELOAD = True
+<<<<<<< HEAD
 X_FRAME_OPTIONS = 'DENY'
+=======
+X_FRAME_OPTIONS ='DENY'
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
 
 SECURE_SSL_REDIRECT = False

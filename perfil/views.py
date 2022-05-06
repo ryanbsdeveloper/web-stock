@@ -56,7 +56,11 @@ class PerfilView(LoginRequiredMixin, View):
         user = UserModel.objects.all().filter(usuario=request.user).values()
         senha = user[0]['senha']
         telefone = user[0]['telefone']
+<<<<<<< HEAD
         data = user[0]['date']
+=======
+        data = user[0]['created_at']
+>>>>>>> 92e95a22d24feb637e573bff7181e3cb8572e420
         data = f'{mês(data.month)} de {data.year}'
         self.contexto = {
             'senha': senha,
