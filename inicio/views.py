@@ -1,4 +1,5 @@
 import email
+from re import template
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views.generic.base import View
@@ -23,7 +24,7 @@ def logout_view(request):
 
 class HomeView(TemplateView):
     template_name = 'index.html'
-    
+
     def setup(self, request, *args, **kwargs) -> None:
         auth.logout(request)
 
@@ -43,7 +44,7 @@ class SingUpView(View):
         self.contexto = {
             'form': UserForm(request.POST or None),
             'email': self.email,
-            'recaptcha_site_key':settings.GOOGLE_RECAPTCHA_SITE_KEY,
+            'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY,
         }
 
     def get(self, request):
@@ -57,27 +58,32 @@ class SingUpView(View):
             '''reCAPTCHA'''
             recaptcha_response = request.POST.get('g-recaptcha-response')
             data = {
-            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
-            'response': recaptcha_response
+                'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
             }
-            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
-            result = r.json()            
+            r = requests.post(
+                'https://www.google.com/recaptcha/api/siteverify', data=data)
+            result = r.json()
             '''fim do reCAPTCHA'''
 
             if result['success']:
                 form.save()
-                user = User.objects.create_user(username=self.usuario, email=self.email, password=self.senha)
+                user = User.objects.create_user(
+                    username=self.usuario, email=self.email, password=self.senha)
                 user.save()
-                user_valida = auth.authenticate(username=self.usuario, password=self.senha)
-                auth.login(request, user_valida )
+                user_valida = auth.authenticate(
+                    username=self.usuario, password=self.senha)
+                auth.login(request, user_valida)
 
                 # token
                 t = Token.objects.get_or_create(user=request.user)[0]
 
-                #enviar email
-                html = render_to_string('email.html', {'token': t, 'nome': request.user})
+                # enviar email
+                html = render_to_string(
+                    'email.html', {'token': t, 'nome': request.user})
                 msg = strip_tags(html)
-                email = EmailMultiAlternatives('Verificação WEB Stock', msg, settings.EMAIL_HOST_USER, [f'{self.email}'])
+                email = EmailMultiAlternatives(
+                    'Verificação WEB Stock', msg, settings.EMAIL_HOST_USER, [f'{self.email}'])
                 email.attach_alternative(html, 'text/html')
                 email.send()
 
@@ -98,7 +104,6 @@ class SingInView(View):
         }
         super().setup(request, *args, **kwargs)
 
-
     def get(self, request):
         return render(request, self.template_name, self.contexto)
 
@@ -108,21 +113,24 @@ class SingInView(View):
         try:
             user = User.objects.get(email=email).username
         except:
-            messages.error(request, 'O e-mail que você inseriu não está conectado a uma conta.')
-            return render(request, self.template_name, self.contexto )
+            messages.error(
+                request, 'O e-mail que você inseriu não está conectado a uma conta.')
+            return render(request, self.template_name, self.contexto)
         else:
             user_valida = auth.authenticate(username=user, password=senha)
             token_valida_do_usuario = UserModel.objects.get(usuario=user).token
-            
+
             if user_valida:
 
                 auth.login(request, user_valida)
                 t = Token.objects.get_or_create(user=request.user)[0]
                 if not token_valida_do_usuario:
-                    #enviar email
-                    html = render_to_string('email.html', {'token': t, 'nome': request.user})
+                    # enviar email
+                    html = render_to_string(
+                        'email.html', {'token': t, 'nome': request.user})
                     msg = strip_tags(html)
-                    email = EmailMultiAlternatives('Verificação WEB Stock', msg, settings.EMAIL_HOST_USER, [f'{email}'])
+                    email = EmailMultiAlternatives(
+                        'Verificação WEB Stock', msg, settings.EMAIL_HOST_USER, [f'{email}'])
                     email.attach_alternative(html, 'text/html')
                     email.send()
 
@@ -144,18 +152,17 @@ class AuthView(LoginRequiredMixin, View):
         if not self.user.is_authenticated:
             return super().setup(request, *args, **kwargs)
 
-        self.token_valido_ou_n = UserModel.objects.get(usuario=self.user.username).token
+        self.token_valido_ou_n = UserModel.objects.get(
+            usuario=self.user.username).token
         self.contexto = {
             'email': self.user.email
         }
         super().setup(request, *args, **kwargs)
 
-
     def get(self, request):
         if self.token_valido_ou_n:
             return redirect('dashboard')
         return render(request, self.template_name, self.contexto)
-
 
     def post(self, request, *args, **kwargs):
         input_token = request.POST.get('token')
@@ -163,12 +170,13 @@ class AuthView(LoginRequiredMixin, View):
         token_do_usuario = Token.objects.get_or_create(user=self.user)[0]
         user = UserModel.objects.get(usuario=self.user)
         if str(input_token) == str(token_do_usuario):
-            valida_token = UserModel(id=user.id, usuario=user.usuario, email=user.email, senha=user.senha, token=True)
+            valida_token = UserModel(
+                id=user.id, usuario=user.usuario, email=user.email, senha=user.senha, token=True)
             valida_token.save()
             return redirect('dashboard')
 
         messages.error(request, 'Token não confere!')
-        
+
         return render(request, self.template_name, self.contexto)
 
 
@@ -178,3 +186,11 @@ class DoaçãoView(TemplateView):
 
 class SobreView(TemplateView):
     template_name = 'doc.html'
+
+
+class PoliticaDePrivacidade(TemplateView):
+    template_name = 'privacidade.html'
+
+
+class TermosDeUso(TemplateView):
+    template_name = 'termos.html'

@@ -28,9 +28,9 @@
                 <div class="g-recaptcha" data-sitekey="{{recaptcha_site_key}}"></div>
                 {% include 'parciais/_messages.html' %}
                 <p> 
-                    <button type="submit" id='btnSalvar' ><img src="{% static 'img/load.gif' %}" style='width:27px;margin-right:5px' id='load'> Cadastrar </button>
+                    <button type="submit" id='btnSalvar' ><img src="{% static 'img/load.gif' %}" style='width:27px;margin-right:5px' id='load'> Cadastrar-se gratuitamente </button>
                 </p>
-                
+                <p style='color:#4c4c4c;font-size:12px'>Ao se cadastrar estará concordando com a <a href="{% url 'privacidade' %}">Política de Privacidade</a> e <a href="{% url 'termos' %}">Termos de Uso</a>.</p>
                 <p class="link">  
                     <a href="{% url 'entrar' %}">Já tem uma conta?</a>
                 </p>
