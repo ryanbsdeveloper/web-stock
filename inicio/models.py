@@ -8,7 +8,7 @@ class UserModel(models.Model):
     senha = models.CharField(max_length=50, verbose_name='Senha')
     telefone = PhoneNumberField(blank=True, null=True)
     token = models.BooleanField(verbose_name='Verificação do token', default=False)
-    created_at = models.DateTimeField(default=datetime.now,  null=True)
+    date = models.DateTimeField(default=datetime.now,  null=True)
 
     def __str__(self) -> str:
         return self.usuario
