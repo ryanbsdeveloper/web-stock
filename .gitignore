@@ -1,4 +1,5 @@
 venv/
 *.pyc
+.pyc
 db.sqlite3
 Estoque\settings.py
