@@ -10,6 +10,7 @@
     <div class="content">    
           <!--FORMULÁRIO DE LOGIN-->
         <img src="{% static 'img/logo.png' %}"style='width:110px;height:auto'>
+        <p class='bem-vindo'>Bem vindo de volta</p>
         <div id="login">
             <form method="POST" id='MyForm'>
                 {% csrf_token %}
@@ -35,6 +36,7 @@
                 <p class="criar-conta">
                     <a href="{% url 'cadastrar' %}">Cadastre-se</a>
                 </p>
+                <br>
             </form>
             <script src="{% static 'js/jquery.js' %}"></script>
             <script>

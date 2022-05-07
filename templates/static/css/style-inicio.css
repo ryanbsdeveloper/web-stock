@@ -22,6 +22,7 @@ i.fa-inverse.fa-solid.fa-heart {
   font-size: 30px;
   margin: 28px 14px;
 }
+
 i.fa-solid.fa-bookmark {
   color: #e3e3e3;
 }
@@ -87,6 +88,7 @@ li {
   font-size: 20px;
   font-weight: bolder;
 }
+
 .botaoCadastro {
   margin-left: 15px;
   text-align: center;
@@ -402,6 +404,7 @@ button:hover {
     opacity: 0;
     -webkit-transform: translateX(-20px);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: translateX(0);
@@ -413,6 +416,7 @@ button:hover {
     opacity: 0;
     transform: translateX(-20px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -425,6 +429,7 @@ button:hover {
     opacity: 1;
     -webkit-transform: translateX(0);
   }
+
   100% {
     opacity: 0;
     -webkit-transform: translateX(-20px);
@@ -436,6 +441,7 @@ button:hover {
     opacity: 1;
     transform: translateX(0);
   }
+
   100% {
     opacity: 0;
     transform: translateX(-20px);
@@ -518,6 +524,7 @@ label.error {
   margin: 8px;
   margin-left: 50px;
 }
+
 .texto::before,
 .texto::after {
   content: "";
@@ -528,6 +535,7 @@ label.error {
   background-color: red;
   left: -1.25em;
 }
+
 .texto::after {
   left: initial;
   right: -1.25em;
@@ -745,6 +753,7 @@ p {
   font-size: 19px;
   font-weight: 600;
 }
+
 .doc h2 {
   font-size: 30px;
   font-family: system-ui;
@@ -783,6 +792,7 @@ p {
   width: 86%;
   margin: auto;
 }
+
 .nossa-api a {
   color: #1616c3;
 }
@@ -794,6 +804,7 @@ i.fa-regular.fa-user {
 a.btn-cadastro {
   background: #9563f9;
 }
+
 .menu a {
   border-radius: 5px;
 }
@@ -820,4 +831,9 @@ a.home:hover {
 
 #box-404 button {
   margin-top: 100px;
+}
+
+.bem-vindo {
+  color: #bc74ea;
+  font-size: 20px;
 }
