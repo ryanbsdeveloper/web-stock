@@ -1075,12 +1075,18 @@ input#telefone {
 }
 
 .obs h3 {
-    color: #5335f9;
+    color: #ffffff;
+    font-weight: 700;
 }
 
 .obs p {
     color: rgb(70, 70, 70);
+    width: 80%;
 }
+.obs a {
+    color: #4726ff;
+}
+
 
 i.fa-solid.fa-gear.fa-2xl {
     color: #5335f9;
@@ -1115,24 +1121,27 @@ i.fa-solid.fa-gear.fa-2xl {
 .obs input{
     text-align: center;
     width: 60%;
-    color: black;
+    color: white;
     font-weight: 600;
     min-width: 23em;
     padding: 10px;
-    margin-bottom: 30px;
+    background: #4c4c4c;
+    border: 0;
+    border-radius: 10px;
 }
 
 p.title-api{
-    color: white;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 600;
 }
 
 .box-api{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     width: 110%;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
 }
 
 .campo-info h5{

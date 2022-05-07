@@ -77,6 +77,11 @@ li {
 }
 
 
+.bem-vindo {
+  color: #bc74ea;
+  font-size: 20px;
+}
+
 .botaoLogin {
   margin-left: 15px;
   text-align: center;
@@ -831,9 +836,4 @@ a.home:hover {
 
 #box-404 button {
   margin-top: 100px;
-}
-
-.bem-vindo {
-  color: #bc74ea;
-  font-size: 20px;
 }

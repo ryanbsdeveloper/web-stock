@@ -11,6 +11,5 @@ class EstoqueViewSet(ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        user2 = get_user_model()
         return EstoqueModel.objects.filter(usuario=user)
 

@@ -3,27 +3,32 @@
 {% load bootstrap4 %}
 {% block head %}{% bootstrap_css %}{% endblock head %}
 
+{%block titulo%}Sua API REST - Estoque{%endblock titulo%}
 
 {% block usuario %}
-API <strong style='color: #5335f9;font-size: 18px;'>Gerencie seu estoque</strong>
+API REST <strong style='color: #5335f9;font-size: 18px;'>Gerencie seu estoque</strong>
 {% endblock usuario %}
 
 {% block conteudo %}
     <div class='main2'>
-        <img src="{% static 'img/gears.png' %}" style='width: 150px;'>
+        {% comment %} <img src="{% static 'img/api_rest.png' %}" style='width: 175px;'> {% endcomment %}
         <div class="obs">
-            <h3>Informações sobre a API</h3>
-            <br>
-            <p class='title-api'>Para acesso a sua API utilize seu token abaixo:</p>
+            <h3>Informações sobre a <img src="{% static 'img/rest-api-logo.png' %}" style='background: #0e0e0eb5;'> </h3>
+            <p class='title-api'>Token de autenticação abaixo:</p>
+            <p><strong>protocolo de autorização: 0Auth 2.0</strong></p>
             <div class='box-api'>
                 <input type="text" value={{token}} disabled >
+                <p style='margin-bottom: 3em;'><strong> Adicione seu token ao Headers da sua requisição.</strong></p>
             </div>
             <p class='title-api'>Url para as requisições abaixo:</p>
             <div class='box-api'>
-                <input type="text" value='http://127.0.0.1:8000/gerenciamento/api/estoque/' disabled>
+                <input type="text" value='http://webstock.kinghost.net/gerenciamento/api/estoque/' disabled>
             </div>
-            <p>Acesse sua API também pelo servidor do <a href="http://127.0.0.1:8000/gerenciamento/api/estoque/">Django REST</a>. Se não estiver logado na nossa plataforma, use seu nome de usuário e senha para acessar.</p>
+
+
+            <p>Acesse sua API também pelo servidor do <a href="http://webstock.kinghost.net/gerenciamento/api/estoque/" target='_blank'>Django REST</a>. mesmo se estiver logado na nossa plataforma, use seu nome de usuário e senha para acessa-lo.</p>
         </div>
     </div>
+
 {% endblock conteudo %}
 

@@ -69,7 +69,7 @@ class PerfilView(LoginRequiredMixin, View):
         return render(request, self.template_name, self.contexto)
 
     def post(self, request, *args, **kwargs):
-        user = get_object_or_404(UserModel, pk=request.user.id)
+        user = get_object_or_404(UserModel, usuario=request.user)
         telefone = request.POST.get('telefone')
         telefone = telefone.replace(' ', '').replace('-','')
         if len(telefone) != 11 or not telefone.isnumeric():
@@ -83,7 +83,6 @@ class PerfilView(LoginRequiredMixin, View):
         num_valid(telefone)
         user.save()
         messages.success(request, 'Número de telefone adicionado')
-
         return redirect('perfil')
 
 

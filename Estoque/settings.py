@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$8*$y4%k5ozcsotw87n=dd)^epx@$v9eg@8z^&hdfov=ibzo=&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['www.webstock.kinghost.net', 'webstock.kinghost.net', 'webstock.web10f74.kinghost.net', '*']
+ALLOWED_HOSTS = ['www.webstock.kinghost.net', 'webstock.kinghost.net', 'webstock.web10f74.kinghost.net']
 
 # Application definition
 
@@ -97,15 +97,15 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'webstock',
+        'NAME': '...',
 
-        'USER': 'webstock',
+        'USER': '...',
 
-        'PASSWORD': '842684265',
+        'PASSWORD': '...',
 
-        'HOST': 'pgsql.webstock.kinghost.net',
+        'HOST': '...',
 
-        'PORT': '5432',
+        'PORT': '...',
     }
 
 }
@@ -190,8 +190,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'ryanbsdeveloper@gmail.com'
-EMAIL_HOST_PASSWORD = '842684265ry'
+EMAIL_HOST_USER = '...'
+EMAIL_HOST_PASSWORD = '...'
 
 #  LOGIN REQUIRED
 LOGIN_URL = 'entrar'

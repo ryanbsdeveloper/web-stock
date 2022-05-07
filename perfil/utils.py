@@ -35,7 +35,7 @@ def num_valid(num:str) -> int:
     
     requests.post('https://textbelt.com/text', {
       'phone': f'{valid}',
-      'message': 'Agradecemos por utilizar nossa plataforma💜! Contato do desenvolvedor: 11990132993',
+      'message': 'Agradecemos por utilizar nossa plataforma💜! Contato do desenvolvedor: ...',
       'key': '9850d2003f242855986870c7b190bb68ec53ec6aTSyTv0LHHHrN9wpjhylPQKgeu',
     })
 
