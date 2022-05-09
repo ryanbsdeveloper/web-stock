@@ -18,8 +18,7 @@ from django.urls import path, include
 from API.urls import router
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import notfound404, notfound500
-
+from .views import notfound404
 urlpatterns = [
     path('', include('inicio.urls')),
     path('welcome/', include('produtos.urls')),
@@ -31,5 +30,5 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = notfound404
-handler500 = notfound500
+
 
