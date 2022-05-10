@@ -17,7 +17,7 @@ Plataforma de gerenciamento de estoque via Web. Tendo acesso exclusivo a uma API
 - JS
 - JQuery
 - Ferramenta de transferência de arquivos: Filezilla
-- Ferramenta para acesso a plataforma Linux via SSH: PuTTY
+- Ferramenta para conexão a plataforma Linux via SSH: PuTTY
   - Hospedagem: KingHost
   - Plataforma da Hospedagem é Linux.
 - API usada: [TextBelt](https://textbelt.com/) 
