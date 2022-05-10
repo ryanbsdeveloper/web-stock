@@ -4,7 +4,7 @@
 
 ### Descrição Da Plataforma :page_facing_up:
 
-Plataforma de gerenciamento de estoque via Web, tendo acesso exclusivo a uma API do Estoque criado na plataforma para usar sem limitações.
+Plataforma de gerenciamento de estoque via Web, tendo acesso exclusivo a uma API do Estoque ao se cadastrar na plataforma para uso ilimitado.
 
 ### <u>Conhecimentos usado no desenvolvimento</u>:chart_with_upwards_trend:
 
