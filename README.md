@@ -1,12 +1,12 @@
-# WEB STOCK <!--Vesão 1.0-->
+# WEB STOCK `Vesão 1.0`
 
-Acesse agora: [Clique aqui](http://www.webstock.kinghost.net/)
+**Acesse agora: [Clique aqui](http://www.webstock.kinghost.net/)**
 
-### Descrição Da Plataforma
+### Descrição Da Plataforma :page_facing_up:
 
 Plataforma de gerenciamento de estoque via Web, tendo acesso exclusivo a uma API do Estoque criado na plataforma para usar sem limitações.
 
-### <u>Conhecimentos usado no desenvolvimento</u>
+### <u>Conhecimentos usado no desenvolvimento</u>:chart_with_upwards_trend:
 
 - Python 3.8
 - Django 4
@@ -24,7 +24,7 @@ Plataforma de gerenciamento de estoque via Web, tendo acesso exclusivo a uma API
 - Envio de Emails via SMTP Gmail
 - Recebimento de doações MERCADO PAGO
 
-<!--PROJETO PESSOAL-->
+~~PROJETO PESSOAL~~
 
-Para qualquer dúvida ou parceria: [Entre em contato](mailto:ryanbsdeveloper@gmail.com)
+**Para qualquer dúvida ou parceria: [Entre em contato](mailto:ryanbsdeveloper@gmail.com)**
 
