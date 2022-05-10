@@ -11,6 +11,7 @@ Plataforma de gerenciamento de estoque via Web, tendo acesso exclusivo a uma API
 - Python 3.8
 - Django 4
 - APIs REST (Django REST Framework)
+- PostgreSQL
 - HTML5
 - CSS3
 - JS
