@@ -23,9 +23,9 @@ Plataforma de gerenciamento de estoque via Web. Tendo acesso exclusivo a uma API
 - API usada: [TextBelt](https://textbelt.com/) 
   - Para envios de SMS ao adicionar o número ao perfil do usuário.
 - Envio de Emails via SMTP Gmail
-- Recebimento de doações MERCADO PAGO
+- Recebimento de doações: MERCADO PAGO
 
-~~PROJETO PESSOAL~~
+`PROJETO PESSOAL`
 
 **Para qualquer dúvida ou parceria: [Entre em contato](mailto:ryanbsdeveloper@gmail.com)**
 
