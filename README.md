@@ -6,6 +6,7 @@
 
 Plataforma de gerenciamento de estoque via Web. Tendo acesso exclusivo a uma API do Estoque ao se cadastrar na plataforma para uso sem limitações.
 
+*obs: Por limitações da assinatura da minha hospedagem só é permitido protocolo de conexão HTTP*
 ### <u>Conhecimentos usado no desenvolvimento</u>:chart_with_upwards_trend:
 
 - Python 3.8
