@@ -19,6 +19,7 @@ from API.urls import router
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import notfound404
+
 urlpatterns = [
     path('', include('inicio.urls')),
     path('welcome/', include('produtos.urls')),
