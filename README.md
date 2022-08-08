@@ -1,4 +1,5 @@
-<<<<<<< HEAD
+### *Projeto Pessoal*
+
 # WEB STOCK `Vesão 1.0`
 
 **Acesse agora: [Clique aqui](http://www.webstock.kinghost.net/)**
@@ -62,5 +63,3 @@ Plataforma de gerenciamento de estoque via Web. Tendo acesso exclusivo a uma API
 `PROJETO PESSOAL`
 
 **Para qualquer dúvida ou parceria: [Entre em contato](mailto:ryanbsdeveloper@gmail.com)**
-
->>>>>>> 658354a17bd13e5653435339c78f0df4f2f84ae4
