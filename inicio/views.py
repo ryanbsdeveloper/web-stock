@@ -11,7 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import auth
 from django.contrib import messages
 from django.conf import settings
-from django.core.mail import EmailMultiAlternatives
+from django.core.mail import send_mail
 from django.utils.html import strip_tags
 from django.template.loader import render_to_string
 import requests
@@ -82,11 +82,8 @@ class SingUpView(View):
                 html = render_to_string(
                     'email.html', {'token': t, 'nome': request.user})
                 msg = strip_tags(html)
-                email = EmailMultiAlternatives(
-                    'Verificação WEB Stock', msg, settings.EMAIL_HOST_USER, [f'{self.email}'])
-                email.attach_alternative(html, 'text/html')
-                email.send()
 
+                send_mail('Verificação WEB Stock', msg, 'ryanbsdeveloper@gmail.com', [f'{self.email}'], html_message=html)
                 return redirect('auth')
             else:
                 messages.error(request, 'reCAPTCHA inválido')

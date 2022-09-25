@@ -1,10 +1,9 @@
 from django.urls import path
 
 from . import views
-from Estoque.views import notfound404, notfound500
+from Estoque.views import notfound404
 
 handler404 = notfound404
-handler500 = notfound500
 
 urlpatterns = [
     path('user/dashboard', views.DashBoardView.as_view(), name='dashboard'),
