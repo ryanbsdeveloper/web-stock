@@ -13,6 +13,7 @@
             <form method="post" id="MyForm"> 
                 {% csrf_token %}
                 <h2>Crie sua conta</h2>
+                <p style='color: #c79942;'>Tenha uma conta em <a style='color: #fd930d;' href="https://mailtrap.io/" target="_blank" rel="noopener noreferrer">"Mailtrap"</a> com seu email para receber o token de verificação.</p>
                 {% for l in form %}
 
                 {% if not l.label == 'Telefone' %}

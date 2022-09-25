@@ -2,3 +2,5 @@ venv/
 *.pyc
 .pyc
 db.sqlite3
+__pycache__/
+migrations/

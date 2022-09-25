@@ -30,32 +30,33 @@
 </nav>
 </head>
 <body>
-    <header>
+    <div class="container-main">
         <img src="{% static 'img/logo.png' %} " height="150px" />
-    </header>
+    
+        <div id="texto_home">
+            <div>
+                <img src="{% static 'img/competencias-expertise-696x1131.png' %}" id='img_home' />
+            </div>
+    
+            <h1 id="titulo">Gerencie seu Estoque<br/>Via Web<br/> <b id="texto-dentro">e domine o mundo!</b></h1>
+            
+            <p class="texto-p">Todos os recursos para gerenciar seu estoque.</p>
+            <p id="ultimo-texto"><b>Gerencie pela nossa plataforma ou consuma a API REST do seu estoque. </b></p>
 
-    <div id="texto_home">
-
-        <div>
-            <img src="{% static 'img/competencias-expertise-696x1131.png' %}" id='img_home' />
         </div>
-
-        <h1 id="titulo">Gerencie seu Estoque<br/>Via Web<br/> <b id="texto-dentro">e domine o mundo!</b></h1>
-        
-        <p class="texto-p">Todos os recursos para gerenciar seu estoque.</p>
-        <p id="ultimo-texto"><b>Gerencie pela nossa plataforma ou consuma a API REST do seu estoque. </b></p>
-
-        <a href="{% url 'doc' %}"><input type="button" value='Documentação' id="botaoApiAzul"></a>
-        <a href="{% url 'doação' %}">
-            <span class="fa-layers fa-fw" style="background:MistyRose">
-                <i class="fa-solid fa-bookmark"></i>
-                <i class="fa-inverse fa-solid fa-heart" data-fa-transform="shrink-10 up-2"></i>
-            </span>
-        </a>
+        <div class="buttons-main">
+            <a href="{% url 'doc' %}"><input type="button" value='Documentação' id="botaoApiAzul"></a>
+            <a href="{% url 'doação' %}">
+                <span class="fa-layers fa-fw" style="background:MistyRose">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <i class="fa-inverse fa-solid fa-heart" data-fa-transform="shrink-10 up-2"></i>
+                </span>
+            </a>
+        </div>
     </div>
-
+    <footer>
+        <p>Copyright © 2022 | Desenvolvido por <a href='https://github.com/ryanbsdeveloper' target="_blank">ryanbs</a></p>
+    </footer>
 </body>
-<footer>
-    <p>Copyright © 2022 | Desenvolvido por <a href='https://github.com/ryanbsdeveloper' target="_blank">ryanbs</a></p>
-</footer>
+
 </html>

@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$8*$y4%k5ozcsotw87n=dd)^epx@$v9eg@8z^&hdfov=ibzo=&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['www.webstock.kinghost.net', 'webstock.kinghost.net', 'webstock.web10f74.kinghost.net']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -92,23 +92,12 @@ WSGI_APPLICATION = 'Estoque.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': '...',
-
-        'USER': '...',
-
-        'PASSWORD': '...',
-
-        'HOST': '...',
-
-        'PORT': '...',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'banco.db',
     }
-
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -186,12 +175,10 @@ REST_FRAMEWORK = {
 }
 
 # EMAIL SEND
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = '...'
-EMAIL_HOST_PASSWORD = '...'
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '960d70fcbb3b17'
+EMAIL_HOST_PASSWORD = 'ddec24664b5d6e'
+EMAIL_PORT = '2525'
 
 #  LOGIN REQUIRED
 LOGIN_URL = 'entrar'
@@ -202,9 +189,9 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_HTTPONLY = True
 
-SECURE_HSTS_PRELOAD = False
-SECURE_SSL_REDIRECT = False
+# CSRF_COOKIE_SECURE = True
+# CSRF_COOKIE_HTTPONLY = True
+# SECURE_HSTS_PRELOAD = False
+# SECURE_SSL_REDIRECT = False
 	
